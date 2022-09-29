@@ -44,23 +44,144 @@ class MyApp extends StatelessWidget {
           ),
           ),
           Card(
+            color: Colors.lightGreenAccent,
             child: Column(
             children: [
               ListTile(
-                title:  Text('Enjoy the special offer'),
-              ),
-              ListTile(
-                title:  Text('up to 60%'),
+                title:  AutoSizeText('Enjoy the special offer\nup to 60%',
+                style: TextStyle(color: Colors.green,
+                  fontSize: 20,
+                ),
+                ),
                 subtitle: Text(
-                  'at 15-25 Mach 2021',
-                  // style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  'at 15-25 March 2021',
                 ),
               ),
                 ],
-
             ),
           ),
-
+            Row(
+              children:[
+                SizedBox(width: 30,
+                  height: 40,),
+            AutoSizeText('Category',
+              style: TextStyle(
+                fontSize:15,
+              ),
+            ),
+              Spacer(),
+              AutoSizeText('See all',
+                style: TextStyle(
+                  fontSize:8,
+                ),
+              ),
+                SizedBox(width: 34),
+      ],
+            ),
+          Row(
+            children: [
+              Expanded(child:
+              Card(
+                child: Column(
+                  children: [
+                  Image.asset(
+                  'images/str.jpg',
+                    width: 60,
+                    height: 60,
+                  ),
+                AutoSizeText('Fruit',
+                  style: TextStyle(
+                    fontSize:8,
+                  ),),
+                  ],
+                ),
+              ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Expanded(child:
+              Card(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'images/str.jpg',
+                      width: 60,
+                      height: 60,
+                    ),
+                    AutoSizeText('Fruit',
+                      style: TextStyle(
+                        fontSize:8,
+                      ),),
+                  ],
+                ),
+              ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Expanded(
+                child:
+              Card(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'images/str.jpg',
+                      width: 60,
+                      height: 60,
+                    ),
+                    AutoSizeText('Fruit',
+                      style: TextStyle(
+                        fontSize:8,
+                      ),),
+                  ],
+                ),
+              ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Expanded(child:
+              Card(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'images/str.jpg',
+                      width: 60,
+                      height: 60,
+                    ),
+                    AutoSizeText('Fruit',
+                      style: TextStyle(
+                        fontSize:8,
+                      ),),
+                  ],
+                ),
+              ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+            ],
+          ),
+          Row(
+            children:[
+              SizedBox(width: 30,
+                height: 40,),
+              AutoSizeText('Best Selling',
+                style: TextStyle(
+                  fontSize:15,
+                ),
+              ),
+              Spacer(),
+              AutoSizeText('See all',
+                style: TextStyle(
+                  fontSize:8,
+                ),
+              ),
+              SizedBox(width: 34),
+            ],
+          ),
+          
   ],
         ),
         ),
