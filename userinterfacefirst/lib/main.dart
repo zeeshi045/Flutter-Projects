@@ -36,15 +36,32 @@ class MyApp extends StatelessWidget {
          ],
           ),
           Padding(
-            padding: EdgeInsets.all(15), //apply padding to all four sides
+
+            padding:EdgeInsets.fromLTRB(30,0,0,0),//apply padding to all four sides
             child: AutoSizeText('What would you buy today ?',
             style:TextStyle(fontSize:13,
             ),
           ),
           ),
+          Card(
+            child: Column(
+            children: [
+              ListTile(
+                title:  Text('Enjoy the special offer'),
+              ),
+              ListTile(
+                title:  Text('up to 60%'),
+                subtitle: Text(
+                  'at 15-25 Mach 2021',
+                  // style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                ),
+              ),
+                ],
+
+            ),
+          ),
 
   ],
-
         ),
         ),
     );
