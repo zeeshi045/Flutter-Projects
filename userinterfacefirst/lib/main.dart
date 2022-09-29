@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home:Scaffold(
         body:Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment:CrossAxisAlignment.start ,
         children:[
           Row(
          children: [
@@ -34,6 +35,14 @@ class MyApp extends StatelessWidget {
            SizedBox(width: 34),
          ],
           ),
+          Padding(
+            padding: EdgeInsets.all(15), //apply padding to all four sides
+            child: AutoSizeText('What would you buy today ?',
+            style:TextStyle(fontSize:13,
+            ),
+          ),
+          ),
+
   ],
 
         ),
