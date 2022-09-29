@@ -181,8 +181,128 @@ class MyApp extends StatelessWidget {
               SizedBox(width: 34),
             ],
           ),
+          Card(
+            child: Row(
+              children: [
+                Card( child:
+            Image.asset(
+            'images/str.jpg',
+              width: 60,
+              height: 60,
+            ),
+                ),
+                Row(
+                  children: [
+                      AutoSizeText('Orange Fresh Juice',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    Icon(Icons.monitor_heart),
+                  ],
+                ),
+                SizedBox(width: 30,
+                height: 50,),
+                Column(
+                    children:[
+                      AutoSizeText('Orange Fresh Juice',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      AutoSizeText('Orange Fresh Juice',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                  ],
+                ),
+
+              ],
+            ),
+          ),
+          Card(
+            child: Row(
+              children: [
+                Card( child:
+                Image.asset(
+                  'images/str.jpg',
+                  width: 60,
+                  height: 60,
+                ),
+                ),
+                Row(
+                  children: [
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                    Icon(Icons.monitor_heart),
+                  ],
+                ),
+                SizedBox(width: 30,
+                  height: 50,),
+                Column(
+                  children:[
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+
+              ],
+            ),
+          ),
+          Card(
+            child: Row(
+              children: [
+                Card( child:
+                Image.asset(
+                  'images/str.jpg',
+                  width: 60,
+                  height: 60,
+                ),
+                ),
+                Row(
+                  children: [
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                    Icon(Icons.monitor_heart),
+                  ],
+                ),
+                SizedBox(width: 30,
+                  height: 50,),
+                Column(
+                  children:[
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                    AutoSizeText('Orange Fresh Juice',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+
+              ],
+            ),
+          ),
           
-  ],
+        ],
         ),
         ),
     );
