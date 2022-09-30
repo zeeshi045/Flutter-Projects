@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,303 +12,513 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home:Scaffold(
-        body:Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment:CrossAxisAlignment.start ,
-        children:[
-          Row(
-         children: [
-           SizedBox(width: 30,
-           height: 80,),
-           AutoSizeText('Hi, Den!',
-          style:TextStyle(color: Colors.black,
-            fontSize: 18,
-          ),
-        ),
-           Spacer(),
-           Icon(
-             Icons.notifications,
-             color:Colors.black87,
-             size: 19.0,
-           ),
-           SizedBox(width: 17),
-         ],
-          ),
-          Padding(
-            padding:EdgeInsets.fromLTRB(30,0,0,0),
-            child: AutoSizeText('What would you buy today ?',
-            style:TextStyle(fontSize:13,
-            ),
-          ),
-          ),
-          Card(
-            color: Colors.lightGreenAccent,
-            margin: EdgeInsets.fromLTRB(30,0,17,0),
-            child: Column(
+      debugShowCheckedModeBanner: false,
+      home: BottomScreen(),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ListTile(
-                title:  AutoSizeText('Enjoy the special offer\nup to 60%',
-                style: TextStyle(color: Colors.green,
-                  fontSize: 20,
-                ),
-                ),
-                subtitle: Text(
-                  'at 15-25 March 2021',
-                ),
+              SizedBox(
+                height: 50,
               ),
-                ],
-            ),
-          ),
-            Row(
-              children:[
-                SizedBox(width: 30,
-                  height: 40,),
-            AutoSizeText('Category',
-              style: TextStyle(
-                fontWeight: FontWeight. bold,
-                fontSize:15,
-              ),
-            ),
-              Spacer(),
-              AutoSizeText('See all',
-                style: TextStyle(
-                  fontSize:8,
-                ),
-              ),
-                SizedBox(width: 17),
-      ],
-            ),
-          Row(
-            children: [
-              Expanded(child:
-              Card(
-                margin: EdgeInsets.fromLTRB(30,0,0,15),
-                child: Column(
-                  children: [
-                  Image.asset(
-                  'images/str.jpg',
-                    width: 50,
-                    height:50,
+              Row(
+                children: [
+                  AutoSizeText(
+                    'Hi, Den!',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
                   ),
-                AutoSizeText('Fruit',
-                  style: TextStyle(
-                    fontSize:8,
-                  ),),
-                  ],
+                  Spacer(),
+                  Icon(
+                    Icons.notifications,
+                    color: Colors.black87,
+                    size: 19.0,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              AutoSizeText(
+                'What would you buy today ?',
+                style: TextStyle(
+                  fontSize: 18,
                 ),
               ),
+              Container(
+                height: 130,
+                child: Card(
+                  color: Colors.green.shade100,
+                  // margin: EdgeInsets.fromLTRB(30, 0, 17, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ListTile(
+                        title: AutoSizeText(
+                          'Enjoy the special offer\nup to 60%',
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Text(
+                            'at 15-25 March 2021',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-// SizedBox(
-//   width: 8,
-// ),
-              Expanded(child:
-              Card(
-                margin: EdgeInsets.fromLTRB(30,0,0,15),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'images/ve.jpg',
-                      width: 50,
-                      height:50,
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AutoSizeText(
+                    'Category',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
                     ),
-                    AutoSizeText('Vegie',
-                      style: TextStyle(
-                        fontSize:8,
-                      ),),
-                  ],
-                ),
-              ),
-              ),
-
-              Expanded(
-                child:
-              Card(
-                margin: EdgeInsets.fromLTRB(30,0,0,15),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'images/br.jpg',
-                      width:50,
-                      height: 50,
+                  ),
+                  Spacer(),
+                  AutoSizeText(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: 12,
                     ),
-                    AutoSizeText('Bread',
-                      style: TextStyle(
-                        fontSize:8,
-                      ),),
-                  ],
-                ),
+                  ),
+                ],
               ),
+              SizedBox(
+                height: 10,
               ),
-
-              Expanded(child:
-              Card(
-                margin: EdgeInsets.fromLTRB(17,0,15,15),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'images/dair.jpg',
-                      width: 50,
-                      height: 50,
+              Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'images/str.jpg',
+                            width: 50,
+                            height: 50,
+                          ),
+                          AutoSizeText(
+                            'Fruit',
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    AutoSizeText('Dairy',
-                      style: TextStyle(
-                        fontSize:8,
-                      ),),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'images/ve.jpg',
+                            width: 50,
+                            height: 50,
+                          ),
+                          AutoSizeText(
+                            'Vegie',
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'images/br.jpg',
+                            width: 50,
+                            height: 50,
+                          ),
+                          AutoSizeText(
+                            'Bread',
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'images/dair.jpg',
+                            width: 50,
+                            height: 50,
+                          ),
+                          AutoSizeText(
+                            'Dairy',
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  AutoSizeText(
+                    'Best Selling',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Spacer(),
+                  AutoSizeText(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: 8,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.lightGreen.shade50,
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color.fromRGBO(206, 244, 206, 1)),
+                        child: Image.asset(
+                          'images/str.jpg',
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AutoSizeText(
+                                "Orange Fresh Juice",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              AutoSizeText(
+                                "Scrambled middle There Scrambled\ngenerated De to alteration",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              AutoSizeText(
+                                "\$232.99",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ]),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 35),
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 20,
               ),
-
+              Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.lightGreen.shade50,
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color.fromRGBO(206, 244, 206, 1)),
+                        child: Image.asset(
+                          'images/str.jpg',
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AutoSizeText(
+                                "Orange Fresh Juice",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              AutoSizeText(
+                                "Scrambled middle There Scrambled\ngenerated De to alteration",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              AutoSizeText(
+                                "\$232.99",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ]),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 35),
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.lightGreen.shade50,
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Container(
+                        height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color.fromRGBO(206, 244, 206, 1)),
+                        child: Image.asset(
+                          'images/str.jpg',
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AutoSizeText(
+                                "Orange Fresh Juice",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              AutoSizeText(
+                                "Scrambled middle There Scrambled\ngenerated De to alteration",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              AutoSizeText(
+                                "\$232.99",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ]),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 35),
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
-          Row(
-            children:[
-              SizedBox(width: 30,
-                height: 30,),
-              AutoSizeText('Best Selling',
-                style: TextStyle(
-                  fontWeight: FontWeight. bold,
-                  fontSize:15,
-                ),
-              ),
-              Spacer(),
-              AutoSizeText('See all',
-                style: TextStyle(
-                  fontSize:8,
-                ),
-              ),
-              SizedBox(width: 17),
-            ],
-          ),
-          Card(
-            margin: EdgeInsets.fromLTRB(30,0,17,0),
-            child: Row(
-              children: [
-                Card(
-                  margin: EdgeInsets.fromLTRB(16,10,16,16),
-                  child:
-            Image.asset(
-            'images/orange.jpg',
-              width: 60,
-              height: 60,
-            ),
-                ),
-                Row(
-                  children: [
-                      AutoSizeText('Orange Fresh Juice',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    Icon(Icons.monitor_heart),
-                  ],
-                ),
-                SizedBox(width: 30,
-                height: 50,),
-                Column(
-                    children:[
-                      AutoSizeText('Orange Fresh Juice',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                      AutoSizeText('Orange Fresh Juice',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                  ],
-                ),
+        ),
+      ),
+    );
+  }
+}
 
-              ],
-            ),
-          ),
-          Card(
-            child: Row(
-              children: [
-                Card( child:
-                Image.asset(
-                  'images/str.jpg',
-                  width: 60,
-                  height: 60,
-                ),
-                ),
-                Row(
-                  children: [
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    Icon(Icons.monitor_heart),
-                  ],
-                ),
-                SizedBox(width: 30,
-                  height: 50,),
-                Column(
-                  children:[
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
+class BottomScreen extends StatefulWidget {
+  @override
+  State<BottomScreen> createState() => _BottomScreenState();
+}
 
-              ],
-            ),
-          ),
-          Card(
-            child: Row(
-              children: [
-                Card( child:
-                Image.asset(
-                  'images/str.jpg',
-                  width: 60,
-                  height: 60,
-                ),
-                ),
-                Row(
-                  children: [
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    Icon(Icons.monitor_heart),
-                  ],
-                ),
-                SizedBox(width: 30,
-                  height: 50,),
-                Column(
-                  children:[
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                    AutoSizeText('Orange Fresh Juice',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
+class _BottomScreenState extends State<BottomScreen> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Home(),
+    Text(
+      'Search',
+      style: optionStyle,
+    ),
+    Text(
+      'Cart',
+      style: optionStyle,
+    ),
+    Text(
+      'Profile',
+      style: optionStyle,
+    ),
+  ];
 
-              ],
-            ),
-          ),
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Profile',
+          ),
         ],
-        ),
-        ),
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.yellow,
+        onTap: _onItemTapped,
+        unselectedItemColor: Colors.black,
+      ),
     );
   }
 }
