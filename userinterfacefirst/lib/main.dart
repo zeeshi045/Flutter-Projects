@@ -32,12 +32,11 @@ class MyApp extends StatelessWidget {
              color:Colors.black87,
              size: 19.0,
            ),
-           SizedBox(width: 34),
+           SizedBox(width: 17),
          ],
           ),
           Padding(
-
-            padding:EdgeInsets.fromLTRB(30,0,0,0),//apply padding to all four sides
+            padding:EdgeInsets.fromLTRB(30,0,0,0),
             child: AutoSizeText('What would you buy today ?',
             style:TextStyle(fontSize:13,
             ),
@@ -45,6 +44,7 @@ class MyApp extends StatelessWidget {
           ),
           Card(
             color: Colors.lightGreenAccent,
+            margin: EdgeInsets.fromLTRB(30,0,17,0),
             child: Column(
             children: [
               ListTile(
@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
                   height: 40,),
             AutoSizeText('Category',
               style: TextStyle(
+                fontWeight: FontWeight. bold,
                 fontSize:15,
               ),
             ),
@@ -75,19 +76,20 @@ class MyApp extends StatelessWidget {
                   fontSize:8,
                 ),
               ),
-                SizedBox(width: 34),
+                SizedBox(width: 17),
       ],
             ),
           Row(
             children: [
               Expanded(child:
               Card(
+                margin: EdgeInsets.fromLTRB(30,0,0,15),
                 child: Column(
                   children: [
                   Image.asset(
                   'images/str.jpg',
-                    width: 60,
-                    height: 60,
+                    width: 50,
+                    height:50,
                   ),
                 AutoSizeText('Fruit',
                   style: TextStyle(
@@ -97,17 +99,18 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ),
-              SizedBox(
-                width: 20,
-              ),
+// SizedBox(
+//   width: 8,
+// ),
               Expanded(child:
               Card(
+                margin: EdgeInsets.fromLTRB(30,0,0,15),
                 child: Column(
                   children: [
                     Image.asset(
                       'images/str.jpg',
-                      width: 60,
-                      height: 60,
+                      width: 50,
+                      height:50,
                     ),
                     AutoSizeText('Fruit',
                       style: TextStyle(
@@ -117,18 +120,17 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ),
-              SizedBox(
-                width: 20,
-              ),
+
               Expanded(
                 child:
               Card(
+                margin: EdgeInsets.fromLTRB(30,0,0,15),
                 child: Column(
                   children: [
                     Image.asset(
                       'images/str.jpg',
-                      width: 60,
-                      height: 60,
+                      width:50,
+                      height: 50,
                     ),
                     AutoSizeText('Fruit',
                       style: TextStyle(
@@ -138,17 +140,16 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ),
-              SizedBox(
-                width: 20,
-              ),
+
               Expanded(child:
               Card(
+                margin: EdgeInsets.fromLTRB(17,0,15,15),
                 child: Column(
                   children: [
                     Image.asset(
                       'images/str.jpg',
-                      width: 60,
-                      height: 60,
+                      width: 50,
+                      height: 50,
                     ),
                     AutoSizeText('Fruit',
                       style: TextStyle(
@@ -158,17 +159,16 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ),
-              SizedBox(
-                width: 20,
-              ),
+
             ],
           ),
           Row(
             children:[
               SizedBox(width: 30,
-                height: 40,),
+                height: 30,),
               AutoSizeText('Best Selling',
                 style: TextStyle(
+                  fontWeight: FontWeight. bold,
                   fontSize:15,
                 ),
               ),
@@ -178,7 +178,7 @@ class MyApp extends StatelessWidget {
                   fontSize:8,
                 ),
               ),
-              SizedBox(width: 34),
+              SizedBox(width: 17),
             ],
           ),
           Card(
@@ -301,7 +301,7 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          
+
         ],
         ),
         ),
