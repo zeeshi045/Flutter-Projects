@@ -279,12 +279,26 @@ class _HomeState extends State<Home> {
                               SizedBox(
                                 height: 10,
                               ),
-                              AutoSizeText(
-                                "\$232.99",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                              Row(
+                                children: [
+                                  AutoSizeText(
+                                    "\$59.99",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        decoration: TextDecoration.lineThrough,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 16,),
+                                  AutoSizeText(
+                                    "\$49.99",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+
+                                ],
                               ),
                             ]),
                         Padding(
@@ -317,9 +331,10 @@ class _HomeState extends State<Home> {
                         width: 90,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: Color.fromRGBO(206, 244, 206, 1)),
+                            color: Colors.red,
+                        ),
                         child: Image.asset(
-                          'images/str.jpg',
+                          'images/cat.jpg',
                           width: 20,
                           height: 20,
                         ),
@@ -337,7 +352,7 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AutoSizeText(
-                                "Orange Fresh Juice",
+                                "Fresh Carrot",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
@@ -353,12 +368,25 @@ class _HomeState extends State<Home> {
                               SizedBox(
                                 height: 10,
                               ),
-                              AutoSizeText(
-                                "\$232.99",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                              Row(
+                                children: [
+                                  AutoSizeText(
+                                    "\$25",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        decoration: TextDecoration.lineThrough,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 16,),
+                                  AutoSizeText(
+                                    "\$19",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
                             ]),
                         Padding(
@@ -393,7 +421,7 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(30),
                             color: Color.fromRGBO(206, 244, 206, 1)),
                         child: Image.asset(
-                          'images/str.jpg',
+                          'images/grs.jpg',
                           width: 20,
                           height: 20,
                         ),
@@ -411,7 +439,7 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AutoSizeText(
-                                "Orange Fresh Juice",
+                                "Juicy Grapes",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
