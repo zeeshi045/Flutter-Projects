@@ -108,11 +108,11 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      'images/str.jpg',
+                      'images/ve.jpg',
                       width: 50,
                       height:50,
                     ),
-                    AutoSizeText('Fruit',
+                    AutoSizeText('Vegie',
                       style: TextStyle(
                         fontSize:8,
                       ),),
@@ -128,11 +128,11 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      'images/str.jpg',
+                      'images/br.jpg',
                       width:50,
                       height: 50,
                     ),
-                    AutoSizeText('Fruit',
+                    AutoSizeText('Bread',
                       style: TextStyle(
                         fontSize:8,
                       ),),
@@ -147,11 +147,11 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      'images/str.jpg',
+                      'images/dair.jpg',
                       width: 50,
                       height: 50,
                     ),
-                    AutoSizeText('Fruit',
+                    AutoSizeText('Dairy',
                       style: TextStyle(
                         fontSize:8,
                       ),),
@@ -182,11 +182,14 @@ class MyApp extends StatelessWidget {
             ],
           ),
           Card(
+            margin: EdgeInsets.fromLTRB(30,0,17,0),
             child: Row(
               children: [
-                Card( child:
+                Card(
+                  margin: EdgeInsets.fromLTRB(16,10,16,16),
+                  child:
             Image.asset(
-            'images/str.jpg',
+            'images/orange.jpg',
               width: 60,
               height: 60,
             ),
