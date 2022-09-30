@@ -7,25 +7,16 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BottomScreen(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: BottomScreen());
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +29,7 @@ class _HomeState extends State<Home> {
                 Colors.amber,
                 Colors.white,
               ],
-            )
-        ),
+            )),
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: SingleChildScrollView(
@@ -99,9 +89,8 @@ class _HomeState extends State<Home> {
                             padding: const EdgeInsets.only(top: 10),
                             child: Text(
                               'at 15-25 March 2021',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12),
+                              style:
+                              TextStyle(color: Colors.black, fontSize: 12),
                             ),
                           ),
                         ),
@@ -139,8 +128,6 @@ class _HomeState extends State<Home> {
                   children: [
                     Expanded(
                       child: Card(
-
-
                         child: Column(
                           children: [
                             Image.asset(
@@ -301,11 +288,14 @@ class _HomeState extends State<Home> {
                                       "\$59.99",
                                       style: TextStyle(
                                           color: Colors.black,
-                                          decoration: TextDecoration.lineThrough,
+                                          decoration:
+                                          TextDecoration.lineThrough,
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(width: 16,),
+                                    SizedBox(
+                                      width: 16,
+                                    ),
                                     AutoSizeText(
                                       "\$49.99",
                                       style: TextStyle(
@@ -313,7 +303,6 @@ class _HomeState extends State<Home> {
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                   ],
                                 ),
                               ]),
@@ -346,8 +335,8 @@ class _HomeState extends State<Home> {
                           height: 90,
                           width: 90,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.red,
                           ),
                           child: Image.asset(
                             'images/cat.jpg',
@@ -364,47 +353,50 @@ class _HomeState extends State<Home> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                AutoSizeText(
-                                  "Fresh Carrot",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                AutoSizeText(
-                                  "Scrambled middle There Scrambled\ngenerated De to alteration",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w200),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  children: [
-                                    AutoSizeText(
-                                      "\$25",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          decoration: TextDecoration.lineThrough,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(width: 16,),
-                                    AutoSizeText(
-                                      "\$19",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ]),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AutoSizeText(
+                                "Fresh Carrot",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              AutoSizeText(
+                                "Scrambled middle There Scrambled\ngenerated De to alteration",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  AutoSizeText(
+                                    "\$25",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        decoration: TextDecoration.lineThrough,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 16,
+                                  ),
+                                  AutoSizeText(
+                                    "\$19",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 20, left: 35),
                             child: Icon(
