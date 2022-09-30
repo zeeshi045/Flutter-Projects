@@ -190,20 +190,114 @@ size: 20,
                   height: 10,
                 ),
             Container(
-              height: 120,
+              height: 130,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Colors.lightGreen.shade50,
+                color: Colors.indigo,
               ),
-              child: Row(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20,left: 20 ,top:10),
+                child: Column(
                   children: [
-                    CircleAvatar(
-                      backgroundImage:AssetImage('images/dd.jpg') ,
-                      radius: 20.0,
+                    Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundImage:AssetImage('images/dd.jpg') ,
+                            radius: 20.0,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20,0,0,0),
+                            child: Column(
+                              children:[
+                                AutoSizeText(
+                                  'Dr. Muhammad Ali',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 60),
+                                  child: AutoSizeText(
+                                    'Dental Specialis',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                          ],
                     ),
-                    ],
+                    SizedBox(width: 30
+                      ,
+                    height:18,),
+                    Container(
+                      height: 40,
+                      width: 300,
+                      child: Card(
+                        color:Colors.blueAccent[100],
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6),
+                              child: Icon(
+                                Icons.view_day,
+                                color: Colors.black87,
+                                size: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: AutoSizeText(
+                                'Monday,july 29',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6),
+                              child: Icon(
+                                Icons.timelapse,
+                                color: Colors.black87,
+                                size: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: AutoSizeText(
+                                '11:00 - 12:00 AM',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                          ],
+
+                        ),
+
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: AutoSizeText(
+                    '11:00 - 12:00 AM',
+                    style: TextStyle(
+                      color: Colors.indigo,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
