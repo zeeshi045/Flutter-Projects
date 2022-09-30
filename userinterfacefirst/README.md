@@ -1,16 +1,2 @@
-# userinterfacefirst
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![out1](https://user-images.githubusercontent.com/112756669/193291814-d8dbdbb0-2cc1-4847-9131-e72111df7b35.JPG)
+![out2](https://user-images.githubusercontent.com/112756669/193291978-5cafcd5b-a9a3-454a-a16a-c9e22efd2b59.JPG)
