@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
               begin: Alignment.centerRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.amber,
+                Colors.orange,
                 Colors.white,
               ],
             )),
@@ -68,7 +68,142 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Container(
+                    height:45,
+
+    child: Card(
+    child: Row(
+    // crossAxisAlignment: CrossAxisAlignment.center,
+    // mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: Icon(
+        Icons.search,
+        color: Colors.black87,
+size: 20,
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(left: 19),
+        child: AutoSizeText(
+          'Search a doctor or health issue',
+          style: TextStyle(
+            color: Colors.black38,
+            fontSize:13 ,
+          ),
+        ),
+      ),
+      ],
+    ),
+    ),
+                    ),
+                  ),
+            SizedBox(width: 50,),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage:AssetImage('images/dd.jpg') ,
+                  radius: 20.0,
+                ),
+                  SizedBox(width:90,),
+                  CircleAvatar(
+                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    radius: 20.0,
+                  ),
+               SizedBox(width: 80,),
+                  CircleAvatar(
+                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    radius: 20.0,
+                  ),
+                SizedBox(width: 70,),
+                  CircleAvatar(
+                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    radius: 20.0,
+                ),
+
+        ],
+              ),
+         Row(
+           children: [
+             AutoSizeText(
+               'Covid 19',
+               style: TextStyle(
+                 color: Colors.black38,
+                 fontSize:13,
+               ),
+             ),
+             SizedBox(width: 73,),
+             AutoSizeText(
+               'Covid 19',
+               style: TextStyle(
+                 color: Colors.black38,
+                 fontSize:13,
+               ),
+             ),
+             SizedBox(width: 73,),
+             AutoSizeText(
+               'Covid 19',
+               style: TextStyle(
+                 color: Colors.black38,
+                 fontSize:13,
+               ),
+             ),
+             SizedBox(width: 55,),
+             AutoSizeText(
+               'Covid 19',
+               style: TextStyle(
+                 color: Colors.black38,
+                 fontSize:13,
+               ),
+             ),
+           ],
+         ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AutoSizeText(
+                      'Appointment Today',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo,
+                        fontSize: 14,
+                      ),
+                    ),
+                    Spacer(),
+                    AutoSizeText(
+                      'See All',
+                      style: TextStyle(
+                        color: Colors.yellow,
+                        fontSize:13,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+            Container(
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.lightGreen.shade50,
+              ),
+              child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage:AssetImage('images/dd.jpg') ,
+                      radius: 20.0,
+                    ),
+                    ],
+              ),
+            ),
               ],
             ),
           ),
