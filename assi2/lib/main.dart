@@ -291,13 +291,169 @@ size: 20,
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: AutoSizeText(
-                    '11:00 - 12:00 AM',
+                    'Top Doctor',
                     style: TextStyle(
                       color: Colors.indigo,
                       fontSize: 16,
                     ),
                   ),
                 ),
+            Container(
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.lightGreen.shade50,
+              ),
+              child: Row(
+                  children: [
+              Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                height: 90,
+                width: 90,
+                // decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(30),
+                //     color: Color.fromRGBO(206, 244, 206, 1)),
+                child: Image.asset(
+                  'images/zee.jpeg',
+                  width: 20,
+                  height: 20,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              AutoSizeText(
+              "Dr Muhammad Zeeshan",
+              style: TextStyle(
+                  color: Colors.indigo,
+                  fontSize:17,
+                  fontWeight: FontWeight.bold),
+            ),
+            AutoSizeText(
+              "Heart Specialis  -  San Fransisco",
+              style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w200),
+
+            ),
+            SizedBox(
+              height: 10,
+            ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.star_border,
+                      color: Colors.yellow,
+                      size: 14,
+                    ),
+                    SizedBox(width:8,),
+                    AutoSizeText(
+                      "4.0  -  50 Reviews",
+                      style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w200),
+
+                    ),
+                  ],
+                ),
+              ],
+            ),
+              ],
+            ),
+                  ],
+              ),
+            ),
+                SizedBox(height:10),
+                Container(
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.lightGreen.shade50,
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Container(
+                          height: 90,
+                          width: 90,
+                          // decoration: BoxDecoration(
+                          //     borderRadius: BorderRadius.circular(30),
+                          //     color: Color.fromRGBO(206, 244, 206, 1)),
+                          child: Image.asset(
+                            'images/zee.jpeg',
+                            width: 20,
+                            height: 20,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AutoSizeText(
+                                "Dr Muhammad Zeeshan",
+                                style: TextStyle(
+                                    color: Colors.indigo,
+                                    fontSize:17,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              AutoSizeText(
+                                "Heart Specialis  -  San Fransisco",
+                                style: TextStyle(
+                                    color: Colors.black54,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w200),
+
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star_border,
+                                    color: Colors.yellow,
+                                    size: 14,
+                                  ),
+                                  SizedBox(width:8,),
+                                  AutoSizeText(
+                                    "4.0  -  50 Reviews",
+                                    style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w200),
+
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),
