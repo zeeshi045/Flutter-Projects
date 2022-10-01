@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
               begin: Alignment.centerRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.orange,
+                Colors.white10,
                 Colors.white,
               ],
             )),
@@ -60,6 +60,14 @@ class Home extends StatelessWidget {
                         color: Colors.indigo,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 14),
+                      child: Icon(
+                        Icons.waving_hand,
+                        color: Colors.yellow,
+                        size: 20,
                       ),
                     ),
                     Spacer(),
@@ -109,22 +117,23 @@ size: 20,
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage:AssetImage('images/dd.jpg') ,
+
+                  backgroundImage:AssetImage('images/covid.png') ,
                   radius: 20.0,
                 ),
                   SizedBox(width:90,),
                   CircleAvatar(
-                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    backgroundImage:AssetImage('images/hos.jpg') ,
                     radius: 20.0,
                   ),
                SizedBox(width: 80,),
                   CircleAvatar(
-                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    backgroundImage:AssetImage('images/abulas.jpg') ,
                     radius: 20.0,
                   ),
                 SizedBox(width: 70,),
                   CircleAvatar(
-                    backgroundImage:AssetImage('images/dd.jpg') ,
+                    backgroundImage:AssetImage('images/pill.jpg') ,
                     radius: 20.0,
                 ),
 
@@ -141,23 +150,23 @@ size: 20,
              ),
              SizedBox(width: 73,),
              AutoSizeText(
-               'Covid 19',
+               'Hospital',
                style: TextStyle(
                  color: Colors.black38,
                  fontSize:13,
                ),
              ),
-             SizedBox(width: 73,),
+             SizedBox(width: 70,),
              AutoSizeText(
-               'Covid 19',
+               'Ambulance',
                style: TextStyle(
                  color: Colors.black38,
                  fontSize:13,
                ),
              ),
-             SizedBox(width: 55,),
+             SizedBox(width: 61,),
              AutoSizeText(
-               'Covid 19',
+               'Pill',
                style: TextStyle(
                  color: Colors.black38,
                  fontSize:13,
@@ -196,7 +205,7 @@ size: 20,
             Container(
               height: 130,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
                 color: Colors.indigo,
               ),
               child: Padding(
@@ -241,8 +250,11 @@ size: 20,
                     height:18,),
                     Container(
                       height: 40,
-                      width: 300,
+                      width: 283,
                       child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                         color:Colors.blueAccent[100],
                         child: Row(
                           children: [
@@ -298,10 +310,12 @@ size: 20,
                     'Top Doctor',
                     style: TextStyle(
                       color: Colors.indigo,
+                        fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
                 ),
+            SizedBox(height: 5,),
             Container(
               height: 120,
               decoration: BoxDecoration(
@@ -393,9 +407,9 @@ size: 20,
                         child: Container(
                           height: 90,
                           width: 90,
-                          // decoration: BoxDecoration(
-                          //     borderRadius: BorderRadius.circular(30),
-                          //     color: Color.fromRGBO(206, 244, 206, 1)),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              ),
                           child: Image.asset(
                             'images/df.jpg',
                             width: 20,
@@ -478,15 +492,15 @@ class _BottomScreenState extends State<BottomScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     Home(),
     Text(
-      'Search',
-      style: optionStyle,
-    ),
-    Text(
-      'Cart',
+      'Chat',
       style: optionStyle,
     ),
     Text(
       'Profile',
+      style: optionStyle,
+    ),
+    Text(
+      'Setting',
       style: optionStyle,
     ),
   ];
@@ -510,16 +524,16 @@ class _BottomScreenState extends State<BottomScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
+            icon: Icon(Icons.chat),
+            label: 'Chat',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Setting',
           ),
         ],
         currentIndex: _selectedIndex,
