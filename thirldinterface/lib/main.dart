@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: BottomScreen());
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BottomScreen());
   }
 }
 class Home extends StatelessWidget {
@@ -246,7 +248,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9),
 
                   image: new DecorationImage(
-                    image: new AssetImage("images/img.jpg"),
+                    image: new AssetImage("images/piza.jpeg"),
                     fit: BoxFit.fill,
                   )
               ),
@@ -290,7 +292,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9),
 
                   image: new DecorationImage(
-                    image: new AssetImage("images/img.jpg"),
+                    image: new AssetImage("images/veg.jpg"),
                     fit: BoxFit.fill,
                   )
               ),
@@ -334,7 +336,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9),
 
                   image: new DecorationImage(
-                    image: new AssetImage("images/img.jpg"),
+                    image: new AssetImage("images/cc.jpg"),
                     fit: BoxFit.fill,
                   )
               ),
