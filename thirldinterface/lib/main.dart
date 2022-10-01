@@ -110,6 +110,54 @@ class Home extends StatelessWidget {
     ),
     ),
     ),
+      SizedBox(height: 10,),
+      Container(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom:140, left:30),
+          child: Row(
+            children: [
+             Container(
+               width:60,
+          height: 20,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
+          color: Color.fromRGBO(204,119,115,0.9),
+        ),
+                 child: Padding(
+                   padding: const EdgeInsets.only(left: 2 ,top: 2),
+                   child: Text('Non Veg',
+                     style: TextStyle(
+                      color: Colors.white,
+                       fontSize: 14,
+
+                     ),
+                   ),
+                 ),
+
+             ),
+              Padding(
+                padding: const EdgeInsets.only(left: 205),
+                child: Icon(
+                  Icons.zoom_out_map,
+                  color: Color.fromRGBO(204,119,115,0.9),
+                  size: 20,
+                ),
+              ),
+          ],
+          ),
+        ),
+
+        height: 190.0,
+        // width: MediaQuery.of(context).size.width - 100.0,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(9),
+
+              image: new DecorationImage(
+                image: new AssetImage("images/img.jpg"),
+                fit: BoxFit.fill,
+            )
+        ),
+      ),
     ],
     ),
     ),
