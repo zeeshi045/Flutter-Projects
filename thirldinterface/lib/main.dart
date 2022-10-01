@@ -112,8 +112,20 @@ class Home extends StatelessWidget {
     ),
       SizedBox(height: 10,),
       Container(
-        child: Padding(
-          padding: const EdgeInsets.only(bottom:140, left:30),
+        height: 210.0,
+        // width: MediaQuery.of(context).size.width - 100.0,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(9),
+
+            image: new DecorationImage(
+              image: new AssetImage("images/img.jpg"),
+              fit: BoxFit.fill,
+            )
+        ),
+          child:Column(
+              children: [
+         Padding(
+          padding: const EdgeInsets.only( top:15,left:30),
           child: Row(
             children: [
              Container(
@@ -139,24 +151,228 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 205),
                 child: Icon(
                   Icons.zoom_out_map,
-                  color: Color.fromRGBO(204,119,115,0.9),
-                  size: 20,
+                  color: Colors.black,
+                  size: 25,
                 ),
               ),
           ],
           ),
         ),
+                Padding(
+                  padding: const EdgeInsets.only(right:170 ,top:88),
+                  child: Text('Chicken Makhani \nSouth Special',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
 
-        height: 190.0,
-        // width: MediaQuery.of(context).size.width - 100.0,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 217),
+                  child: Text('30 Recipes | 1 Serving',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 9,
 
-              image: new DecorationImage(
-                image: new AssetImage("images/img.jpg"),
-                fit: BoxFit.fill,
-            )
+                    ),
+                  ),
+                ),
+      ],
+          ),
+      ),
+      SizedBox(height: 10,),
+      Text('Trending Recipe',
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+
         ),
+      ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child:Row(
+          children: [
+            Container(
+              height: 150.0,
+              width: 200,
+              // width: MediaQuery.of(context).size.width - 100.0,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(9),
+
+                  image: new DecorationImage(
+                    image: new AssetImage("images/img.jpg"),
+                    fit: BoxFit.fill,
+                  )
+              ),
+              child:Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only( top:15,left:30),
+                    child: Row(
+                      children: [
+                        Container(
+                          width:60,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Color.fromRGBO(204,119,115,0.9),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2 ,top: 2),
+                            child: Text('Non Veg',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 10,),
+            Container(
+              height: 150.0,
+              width: 200,
+              // width: MediaQuery.of(context).size.width - 100.0,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(9),
+
+                  image: new DecorationImage(
+                    image: new AssetImage("images/img.jpg"),
+                    fit: BoxFit.fill,
+                  )
+              ),
+              child:Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only( top:15,left:30),
+                    child: Row(
+                      children: [
+                        Container(
+                          width:60,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Color.fromRGBO(204,119,115,0.9),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2 ,top: 2),
+                            child: Text('Fast Food',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 10,),
+            Container(
+              height: 150.0,
+              width: 200,
+              // width: MediaQuery.of(context).size.width - 100.0,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(9),
+
+                  image: new DecorationImage(
+                    image: new AssetImage("images/img.jpg"),
+                    fit: BoxFit.fill,
+                  )
+              ),
+              child:Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only( top:15,left:30),
+                    child: Row(
+                      children: [
+                        Container(
+                          width:60,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Color.fromRGBO(204,119,115,0.9),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2 ,top: 2),
+                            child: Text('Veg',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 10,),
+            Container(
+              height: 150.0,
+              width: 200,
+              // width: MediaQuery.of(context).size.width - 100.0,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(9),
+
+                  image: new DecorationImage(
+                    image: new AssetImage("images/img.jpg"),
+                    fit: BoxFit.fill,
+                  )
+              ),
+              child:Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only( top:15,left:30),
+                    child: Row(
+                      children: [
+                        Container(
+                          width:60,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Color.fromRGBO(204,119,115,0.9),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2 ,top: 2),
+                            child: Text('Tandori Special',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+
+                              ),
+                            ),
+                          ),
+
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+          ],
+        ),
+
       ),
     ],
     ),
