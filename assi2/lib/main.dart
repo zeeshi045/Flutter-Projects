@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
                     AutoSizeText(
                       'Hello',
                       style: TextStyle(
-                        color: Colors.deepPurpleAccent,
+                        color: Colors.indigo,
                         fontSize: 14,
                       ),
                     ),
@@ -57,7 +57,8 @@ class Home extends StatelessWidget {
                     AutoSizeText(
                       'Zeeshan Farooq',
                       style: TextStyle(
-                        color: Colors.deepPurpleAccent,
+                        color: Colors.indigo,
+                        fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
                     ),
@@ -71,9 +72,12 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
-                    height:45,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.lightGreen.shade50,
+                      ),
+                    height:33,
 
-    child: Card(
     child: Row(
     // crossAxisAlignment: CrossAxisAlignment.center,
     // mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +102,7 @@ size: 20,
       ),
       ],
     ),
-    ),
+
                     ),
                   ),
             SizedBox(width: 50,),
@@ -393,7 +397,7 @@ size: 20,
                           //     borderRadius: BorderRadius.circular(30),
                           //     color: Color.fromRGBO(206, 244, 206, 1)),
                           child: Image.asset(
-                            'images/zee.jpeg',
+                            'images/df.jpg',
                             width: 20,
                             height: 20,
                           ),
@@ -411,7 +415,7 @@ size: 20,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AutoSizeText(
-                                "Dr Muhammad Zeeshan",
+                                "Dr Kasturi",
                                 style: TextStyle(
                                     color: Colors.indigo,
                                     fontSize:17,
@@ -437,7 +441,7 @@ size: 20,
                                   ),
                                   SizedBox(width:8,),
                                   AutoSizeText(
-                                    "4.0  -  50 Reviews",
+                                    "4.4  -  50 Reviews",
                                     style: TextStyle(
                                         color: Colors.black54,
                                         fontSize: 12,
