@@ -35,10 +35,9 @@ int num3 = 1;
 int num4 = 5;
 int s1=0,s2=0,s3=0,s4=0;
 int allow=10;
-int total=0,win=0,winner=0;
+int total=0;
+var win ="";
 int count1=0,count2=0,count3=0,count4=0;
-int p1=1,p2=2,p3=3,p4=4;
-
 class _diceState extends State<dice> {
   @override
   Widget build(BuildContext context) {
@@ -108,7 +107,7 @@ class _diceState extends State<dice> {
 
                 Expanded(
                   child: Text(
-                    'Clicks :$s1',
+                    'Clicks :$count1',
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       fontSize:18,
@@ -121,7 +120,7 @@ class _diceState extends State<dice> {
                   child: Padding(
                     padding: const EdgeInsets.only(left:0),
                     child: Text(
-                      'Clicks :$s1',
+                      'Clicks :$count2',
                       textDirection: TextDirection.ltr,
                       style: TextStyle(
                         fontSize:18,
@@ -133,7 +132,7 @@ class _diceState extends State<dice> {
                 ),
                 Expanded(
                   child: Text(
-                    'Clicks :$s1',
+                    'Clicks :$count3',
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       fontSize:18,
@@ -143,7 +142,7 @@ class _diceState extends State<dice> {
 
                 ),
                 Expanded(child:Text(
-                  'Clicks :$s1',
+                  'Clicks :$count4',
                   textDirection: TextDirection.ltr,
                   style: TextStyle(
                     fontSize:18,
@@ -161,7 +160,7 @@ class _diceState extends State<dice> {
 
                 Expanded(
                   child: Text(
-                    'Clicks :$s1',
+                    'Score:$s1',
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       fontSize:18,
@@ -174,7 +173,7 @@ class _diceState extends State<dice> {
                   child: Padding(
                     padding: const EdgeInsets.only(left:0),
                     child: Text(
-                      'Clicks :$s1',
+                      'Score:$s2',
                       textDirection: TextDirection.ltr,
                       style: TextStyle(
                         fontSize:18,
@@ -186,7 +185,7 @@ class _diceState extends State<dice> {
                 ),
                 Expanded(
                   child: Text(
-                    'Clicks :$s1',
+                    'Score:$s3',
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       fontSize:18,
@@ -196,7 +195,7 @@ class _diceState extends State<dice> {
 
                 ),
                 Expanded(child:Text(
-                  'Clicks :$s1',
+                  'Score:$s4',
                   textDirection: TextDirection.ltr,
                   style: TextStyle(
                     fontSize:18,
@@ -206,41 +205,40 @@ class _diceState extends State<dice> {
                 ),
               ],
             ),
+SizedBox(height: 15,),
 Row(
   mainAxisAlignment: MainAxisAlignment.start,
   crossAxisAlignment: CrossAxisAlignment.center,
   children: [
     Expanded(child:TextButton(
-      child: Image.asset("images/dice$num.png"),
+      child: Image.asset("images/dice$num.png",
+        color: Colors.blueGrey,
+      ),
       onPressed: () {
             setState(() {
               if(count1<10){
-                if(p1==1){
                   num = Random().nextInt(6) + 1;
                   s1=s1+num;
                   total=total+num;
                   if(num!=6){
                     count1=count1+1;
                   }
-
-                }
               };
               if(s1>s2 && s1>s3 && s1>s4){
-                winner=s1;
-                win=1;
-
+                total=s1;
+                win="zeeshan";
               }
               else if(s2>s1 && s2>s3 && s2>s4){
-                winner=s2;
-                win=2;
+                total=s2;
+                win="Haider1";
               }
               else if(s3>s1 && s3>s2 && s3>s4){
-                winner=s3;
-                win=3;
+                total=s3;
+                win="junaid";
               }
               else{
-                winner=s4;
-                win=4;
+                total=s4;
+                win="Nouman";
               };
               if(allow>0){
                 allow=allow-1;
@@ -248,7 +246,7 @@ Row(
               if(count1==10){
                 AlertDialog alert = AlertDialog(
                   title: Text("your turn is end"),
-                  content: Text("dice 2 play."),
+                  content: Text("Haider1 play."),
                   actions: [
                     TextButton(
                       onPressed: (){
@@ -268,7 +266,7 @@ Row(
               if(count1==10 && count2==10 && count3==10 && count4==10){
                 AlertDialog alert = AlertDialog(
                   title: Text('Winner is dice $win'),
-                  content: Text('Score $winner'),
+                  content: Text('Score $total'),
                   actions: [
                     TextButton(
                       onPressed: (){
@@ -293,44 +291,41 @@ Row(
         ),
     ),
     Expanded(child:TextButton(
-      child: Image.asset("images/dice$num2.png"),
-      onPressed: () {
+      child: Image.asset("images/dice$num2.png",
+        color: Colors.blueGrey,),
+      onPressed:count1==10? () {
         setState(() {
           if(count2<10){
-            if(p2==2){
-              num = Random().nextInt(6) + 1;
-              s2=s2+num;
-              total=total+num;
-              if(num!=6){
+              num2= Random().nextInt(6) + 1;
+              s2=s2+num2;
+              total=total+num2;
+              if(num2!=6){
                 count2=count2+1;
               }
-
-            }
           };
           if(s1>s2 && s1>s3 && s1>s4){
-            winner=s1;
-            win=1;
-
+            total=s1;
+            win="Zeeshan";
           }
           else if(s2>s1 && s2>s3 && s2>s4){
-            winner=s2;
-            win=2;
+            total=s2;
+            win="Haider";
           }
           else if(s3>s1 && s3>s2 && s3>s4){
-            winner=s3;
-            win=3;
+            total=s3;
+            win="junaid";
           }
           else{
-            winner=s4;
-            win=4;
+            total=s4;
+            win="nouman";
           };
           if(allow>0){
             allow=allow-1;
           };
-          if(count1==10){
+          if(count2==10){
             AlertDialog alert = AlertDialog(
               title: Text("your turn is end"),
-              content: Text("dice 2 play."),
+              content: Text("Junaid play."),
               actions: [
                 TextButton(
                   onPressed: (){
@@ -350,7 +345,7 @@ Row(
           if(count1==10 && count2==10 && count3==10 && count4==10){
             AlertDialog alert = AlertDialog(
               title: Text('Winner is dice $win'),
-              content: Text('Score $winner'),
+              content: Text('Score $total'),
               actions: [
                 TextButton(
                   onPressed: (){
@@ -371,48 +366,45 @@ Row(
         });
 
         print(num);
-      },
+      }:null,
     ),
     ),
     Expanded(child:TextButton(
-      child: Image.asset("images/dice$num.png"),
-      onPressed: () {
+      child: Image.asset("images/dice$num3.png",
+        color: Colors.blueGrey,),
+      onPressed:count1==10 && count2==10? () {
         setState(() {
-          if(count1<10){
-            if(p1==1){
-              num = Random().nextInt(6) + 1;
-              s1=s1+num;
-              total=total+num;
-              if(num!=6){
-                count1=count1+1;
+          if(count3<10){
+              num3 = Random().nextInt(6) + 1;
+              s3=s3+num3;
+              if(num3!=6){
+                count3=count3+1;
               }
-
-            }
           };
           if(s1>s2 && s1>s3 && s1>s4){
-            winner=s1;
-            win=1;
+            total=s1;
+            win="zeeshan";
 
           }
           else if(s2>s1 && s2>s3 && s2>s4){
-            winner=s2;
-            win=2;
+            total=s2;
+            win="Haider1";
           }
           else if(s3>s1 && s3>s2 && s3>s4){
-            winner=s3;
-            win=3;
+            total=s3;
+            win="junaid";
           }
           else{
-            winner=s4;
-            win=4;
+            total=s4;
+            win="Nouman";
           };
           if(allow>0){
             allow=allow-1;
           };
-          if(count1==10){
+          if(count3==10){
             AlertDialog alert = AlertDialog(
               title: Text("your turn is end"),
-              content: Text("dice 2 play."),
+              content: Text("Nouman play."),
               actions: [
                 TextButton(
                   onPressed: (){
@@ -432,7 +424,7 @@ Row(
           if(count1==10 && count2==10 && count3==10 && count4==10){
             AlertDialog alert = AlertDialog(
               title: Text('Winner is dice $win'),
-              content: Text('Score $winner'),
+              content: Text('Score $total'),
               actions: [
                 TextButton(
                   onPressed: (){
@@ -453,7 +445,85 @@ Row(
         });
 
         print(num);
-      },
+      }:null,
+    ),
+    ),
+    Expanded(child:TextButton(
+      child: Image.asset("images/dice$num4.png",
+        color: Colors.blueGrey,),
+      onPressed:count1==10 && count2==10 && count3==10? () {
+        setState(() {
+          if(count4<10){
+              num4 = Random().nextInt(6) + 1;
+              s4=s4+num4;
+              if(num4!=6){
+                count4=count4+1;
+              }
+          };
+          if(s1>s2 && s1>s3 && s1>s4){
+            total=s1;
+            win="zeeshan";
+
+          }
+          else if(s2>s1 && s2>s3 && s2>s4){
+            total=s2;
+            win="Haider1";
+          }
+          else if(s3>s1 && s3>s2 && s3>s4){
+            total=s3;
+            win="junaid";
+          }
+          else{
+            total=s4;
+            win="Nouman";
+          };
+          if(allow>0){
+            allow=allow-1;
+          };
+          if(count4==10){
+            AlertDialog alert = AlertDialog(
+              title: Text("your turn is end"),
+              actions: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('oky'),
+                ),
+              ],
+            );
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return alert;
+              },
+            );
+          }
+          if(count1==10 && count2==10 && count3==10 && count4==10){
+            AlertDialog alert = AlertDialog(
+              title: Text('Winner is dice $win'),
+              content: Text('Score $total'),
+              actions: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('oky'),
+                ),
+              ],
+            );
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return alert;
+              },
+            );
+          }
+
+        });
+
+        print(num);
+      }:null,
     ),
     ),
   ],
