@@ -62,6 +62,16 @@ class _diceState extends State<dice> {
               crossAxisAlignment: CrossAxisAlignment.center,
 
             children: [
+              Text(
+                'Start from zeeshan and every player have 10 clicks',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontSize:18,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+            SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
