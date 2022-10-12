@@ -67,6 +67,7 @@ class home extends StatefulWidget {
 
   @override
   State<home> createState() => _homeState();
+
 }
 int b1=0;
 int b2=0;
@@ -80,13 +81,19 @@ int b9=0;
 int b10=0;
 int count1=0;
 int count2=0;
-one(){
-  if(count1==2){
-    AssetsAudioPlayer.newPlayer().open(
-      Audio("assets/win.wav"),
-    );
-    // Get.to(const send());
-  }
+// one(){
+//   if(count1==3) {
+//      k();
+//      Get.to(send(),
+//        duration:Duration(seconds: 3),);
+//
+//   }
+// }
+k(){
+  count1=0;
+  AssetsAudioPlayer.newPlayer().open(
+    Audio("assets/win.wav"),
+  );
 }
 one1(){
   if(count2==2){
@@ -215,8 +222,14 @@ class _homeState extends State<home> {
                   onPressed:(){
                     b4=1;
                     function2();
-                    one();
                     one1();
+                    if(count1==5){
+                      k();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const send()),
+                      );
+                    }
 
                   },
                   child: Text('4',
@@ -250,8 +263,14 @@ class _homeState extends State<home> {
                   onPressed:(){
                     b10=1;
                     function5();
-                    one();
                     one1();
+                    if(count1==5){
+                      k();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const send()),
+                      );
+                    }
                   },
                   child: Text('3',
                     style: TextStyle(
@@ -283,8 +302,14 @@ class _homeState extends State<home> {
                   onPressed:(){
                     b8=1;
                     function4();
-                    one();
                     one1();
+                    if(count1==5){
+                      k();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const send()),
+                      );
+                    }
 
                   },
                   child: Text('1',
@@ -318,8 +343,14 @@ class _homeState extends State<home> {
                   onPressed:(){
                     b6=1;
                     function3();
-                    one();
                     one1();
+                    if(count1==5){
+                      k();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const send()),
+                      );
+                    }
                   },
                   child: Text('5',
                     style: TextStyle(
@@ -352,8 +383,14 @@ class _homeState extends State<home> {
                   onPressed:(){
                     b2=1;
                     function1();
-                    one();
                     one1();
+                    if(count1==5){
+                      k();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const send()),
+                      );
+                    }
                   },
                   child: Text('2',
                     style: TextStyle(
@@ -364,7 +401,6 @@ class _homeState extends State<home> {
                   ),
                 ),
               ],
-
             ),
           ],
         ),
@@ -378,12 +414,484 @@ class send extends StatefulWidget {
   @override
   State<send> createState() => _sendState();
 }
-
+int b11=0;
+int b12=0;
+int b13=0;
+int b14=0;
+int b15=0;
+int b16=0;
+int b17=0;
+int b18=0;
+int b19=0;
+int b110=0;
+int count11=0;
+int count12=0;
+int m=0;
+int m1=0;
+int m2=0;
+int m3=0;
+int m4=0;
+int m5=0;
+int m6=0;
+int m7=0;
+int m8=0;
+int m9=0;
+lvl2f1(){
+  if(b11==1 && b12==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    b11=0;
+    b12=0;
+  }
+  else if(b11!=1 && b12==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f2(){
+  if(b13==1 && b14==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    b13=0;
+    b14=0;
+  }
+  else if(b13!=1 && b14==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f3(){
+  if(b15==1 && b16==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    b15=0;
+    b16=0;
+  }
+  else if(b15!=1 && b16==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f4(){
+  if(b17==1 && b18==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    b17=0;
+    b18=0;
+  }
+  else if(b17!=1 && b18==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f5(){
+  if(b19==1 && b110==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    b19=0;
+    b110=0;
+  }
+  else if(b19!=1 && b110==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f6(){
+  if(m==1 && m1==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    m1=0;
+    m=0;
+  }
+  else if(m!=1 && m1==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f7(){
+  if(m2==1 && m3==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    m3=0;
+    m2=0;
+  }
+  else if(m2!=1 && m3==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f8(){
+  if(m4==1 && m5==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    m4=0;
+    m5=0;
+  }
+  else if(b4!=1 && m5==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f9(){
+  if(m6==1 && m7==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    m6=0;
+    m7=0;
+  }
+  else if(m6!=1 && m7==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
+lvl2f10(){
+  if(m8==1 && m9==1) {
+    count11=count11+1;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/correct.ogg"),
+    );
+    m8=0;
+    m9=0;
+  }
+  else if(m8!=1 && m9==1){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/not.ogg"),
+    );
+    count12=count12+1;
+  }
+}
 class _sendState extends State<send> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:Text("kaka"),
+
+    return Scaffold(
+      appBar: AppBar(
+        title:Text('Matching game'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children:[
+              Text('Level 2',
+                style: TextStyle(
+                  fontSize:30,
+                  color: Colors.black87,
+                ),
+              ),
+              SizedBox(height: 10,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                    },
+                    child: Image.asset("images/2.JPG",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+
+
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
