@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -50,13 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
 class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         theme: ThemeData(
         primarySwatch: Colors.green,
     ),
     home: home(),
       debugShowCheckedModeBanner: false,
-
     );
   }
 }
@@ -76,14 +78,23 @@ int b7=0;
 int b8=0;
 int b9=0;
 int b10=0;
-int count1=0,count2=0;
-truef(){
+int count1=0;
+int count2=0;
+one(){
+  if(count1==2){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/win.wav"),
+    );
+    // Get.to(const send());
+  }
+}
+one1(){
   if(count2==2){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/loser.ogg"),
     );
+    count2=0;
   }
-
 }
 function1(){
   if(b1==1 && b2==1) {
@@ -94,17 +105,14 @@ function1(){
     b1=0;
     b2=0;
   }
-  else if(b1!=1 && b2!=1){
+ else if(b1!=1 && b2==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
-
     );
-    count2++;
-
+    count2=count2+1;
   }
 }
-void function2(){
-  setState(() {
+function2(){
   if(b3==1 && b4==1) {
     count1=count1+1;
     AssetsAudioPlayer.newPlayer().open(
@@ -113,14 +121,12 @@ void function2(){
     b3=0;
     b4=0;
   }
-  else if(b3!=1 && b4!=1){
+  if(b3!=1 && b4==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
     );
-    count2++;
-
+    count2=count2+1;
   }
-  });
 }
 function3(){
   if(b5==1 && b6==1) {
@@ -131,11 +137,11 @@ function3(){
     b5=0;
     b6=0;
   }
-  else if(b5!=1 && b6!=1){
+   if(b5!=1 && b6==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
     );
-    count2++;
+    count2=count2+1;
 
   }
 }
@@ -148,15 +154,14 @@ function4(){
     b7=0;
     b8=0;
   }
-  else if(b7!=1 && b8!=1){
+  if(b7!=1 && b8==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
     );
-    count2++;
+    count2=count2+1;
   }
 }
 function5(){
-
   if(b9==1 && b10==1) {
     count1=count1+1;
     AssetsAudioPlayer.newPlayer().open(
@@ -165,12 +170,11 @@ function5(){
     b9=0;
     b10=0;
   }
-  else if(b9!=1 && b10!=1){
+   if(b9!=1 && b10==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
     );
-    count2++;
-
+    count2=count2+1;
   }
 }
 class _homeState extends State<home> {
@@ -210,11 +214,10 @@ class _homeState extends State<home> {
                 TextButton(
                   onPressed:(){
                     b4=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/not.ogg"),
-                    );
                     function2();
-                    truef();
+                    one();
+                    one1();
+
                   },
                   child: Text('4',
                     style: TextStyle(
@@ -246,11 +249,9 @@ class _homeState extends State<home> {
                 TextButton(
                   onPressed:(){
                     b10=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/not.ogg"),
-                    );
                     function5();
-                    truef();
+                    one();
+                    one1();
                   },
                   child: Text('3',
                     style: TextStyle(
@@ -281,11 +282,10 @@ class _homeState extends State<home> {
                 TextButton(
                   onPressed:(){
                     b8=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/not.ogg"),
-                    );
                     function4();
-                    truef();
+                    one();
+                    one1();
+
                   },
                   child: Text('1',
                     style: TextStyle(
@@ -317,11 +317,9 @@ class _homeState extends State<home> {
                 TextButton(
                   onPressed:(){
                     b6=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/not.ogg"),
-                    );
                     function3();
-                    truef();
+                    one();
+                    one1();
                   },
                   child: Text('5',
                     style: TextStyle(
@@ -353,11 +351,9 @@ class _homeState extends State<home> {
                 TextButton(
                   onPressed:(){
                     b2=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/not.ogg"),
-                    );
                     function1();
-                    truef();
+                    one();
+                    one1();
                   },
                   child: Text('2',
                     style: TextStyle(
@@ -373,6 +369,21 @@ class _homeState extends State<home> {
           ],
         ),
       ),
+    );
+  }
+}
+class send extends StatefulWidget {
+  const send({Key? key}) : super(key: key);
+
+  @override
+  State<send> createState() => _sendState();
+}
+
+class _sendState extends State<send> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child:Text("kaka"),
     );
   }
 }
