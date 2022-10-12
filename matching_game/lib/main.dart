@@ -192,217 +192,233 @@ class _homeState extends State<home> {
         title:Text('Matching game'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children:[
-            Text('Level 1',
-              style: TextStyle(
-                fontSize:30,
-                color: Colors.black87,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.yellow,
+                Colors.green,
+                Colors.black87,
+
+              ],
+            )
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children:[
+              Text('Level 1',
+                style: TextStyle(
+                  fontSize:30,
+                  color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                ),
               ),
-            ),
-          SizedBox(height: 10,),
-            Row(
-              children: [
-                TextButton(
-                  onPressed:(){
-                    b1=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/touch2.ogg"),
-                    );
-                  },
-                  child: Image.asset("images/2.JPG",
-                    height: 60,
-                    width: 66,
-                  ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed:(){
-                    b4=1;
-                    function2();
-                    one1();
-                    if(count1==5){
-                      k();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const send()),
+            SizedBox(height: 10,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      b1=1;
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/touch2.ogg"),
                       );
-                    }
-
-                  },
-                  child: Text('4',
-                    style: TextStyle(
-                      fontSize:22,
-                      color: Colors.amber,
-                      fontWeight: FontWeight.bold,
+                    },
+                    child: Image.asset("images/a2.jpg",
+                      height: 60,
+                      width: 66,
                     ),
                   ),
-                ),
-              ],
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+                      b4=1;
+                      function2();
+                      one1();
+                      if(count1==5){
+                        k();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const send()),
+                        );
+                      }
 
-            ),
-            SizedBox(height: 15,),
-            Row(
-              children: [
-                TextButton(
-                  onPressed:(){
-                    b3=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/touch4.ogg"),
-                    );
-                  },
-                  child: Image.asset("images/4.JPG",
-                    height: 60,
-                    width: 66,
-                  ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed:(){
-                    b10=1;
-                    function5();
-                    one1();
-                    if(count1==5){
-                      k();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const send()),
-                      );
-                    }
-                  },
-                  child: Text('3',
-                    style: TextStyle(
-                      fontSize:22,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
+                    },
+                    child: Text('4',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 15,),
-            Row(
-              children: [
-                TextButton(
-                  onPressed:(){
-                    b5=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/touch5.ogg"),
-                    );
-                  },
-                  child: Image.asset("images/5.png",
-                    height: 60,
-                    width: 66,
-                  ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed:(){
-                    b8=1;
-                    function4();
-                    one1();
-                    if(count1==5){
-                      k();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const send()),
-                      );
-                    }
+                ],
 
-                  },
-                  child: Text('1',
-                    style: TextStyle(
-                      fontSize:22,
-                      color: Colors.brown,
-                      fontWeight: FontWeight.bold,
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      b3=1;
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/touch4.ogg"),
+                      );
+                    },
+                    child: Image.asset("images/a4.jpg",
+                      height: 60,
+                      width: 66,
                     ),
                   ),
-                ),
-              ],
-
-            ),
-            SizedBox(height: 15,),
-            Row(
-              children: [
-                TextButton(
-                  onPressed:(){
-                    b7=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/touch1.ogg"),
-                    );
-                  },
-                  child: Image.asset("images/1.JPG",
-                    height: 60,
-                    width: 66,
-                  ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed:(){
-                    b6=1;
-                    function3();
-                    one1();
-                    if(count1==5){
-                      k();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const send()),
-                      );
-                    }
-                  },
-                  child: Text('5',
-                    style: TextStyle(
-                      fontSize:22,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+                      b10=1;
+                      function5();
+                      one1();
+                      if(count1==5){
+                        k();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const send()),
+                        );
+                      }
+                    },
+                    child: Text('3',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
-
-            ),
-            SizedBox(height: 15,),
-            Row(
-              children: [
-                TextButton(
-                  onPressed:(){
-                    b9=1;
-                    AssetsAudioPlayer.newPlayer().open(
-                      Audio("assets/touch3.ogg"),
-                    );
-                  },
-                  child: Image.asset("images/3.png",
-                    height: 60,
-                    width: 66,
-                  ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed:(){
-                    b2=1;
-                    function1();
-                    one1();
-                    if(count1==5){
-                      k();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const send()),
+                ],
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      b5=1;
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/touch5.ogg"),
                       );
-                    }
-                  },
-                  child: Text('2',
-                    style: TextStyle(
-                      fontSize:22,
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
+                    },
+                    child: Image.asset("images/a5.png",
+                      height: 60,
+                      width: 66,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+                      b8=1;
+                      function4();
+                      one1();
+                      if(count1==5){
+                        k();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const send()),
+                        );
+                      }
+
+                    },
+                    child: Text('1',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.brown,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      b7=1;
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/touch1.ogg"),
+                      );
+                    },
+                    child: Image.asset("images/a1.jpg",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+                      b6=1;
+                      function3();
+                      one1();
+                      if(count1==5){
+                        k();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const send()),
+                        );
+                      }
+                    },
+                    child: Text('5',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      b9=1;
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/touch3.ogg"),
+                      );
+                    },
+                    child: Image.asset("images/a3.png",
+                      height: 60,
+                      width: 66,
+                    ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed:(){
+                      b2=1;
+                      function1();
+                      one1();
+                      if(count1==5){
+                        k();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const send()),
+                        );
+                      }
+                    },
+                    child: Text('2',
+                      style: TextStyle(
+                        fontSize:22,
+                        color: Colors.purple,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -436,6 +452,22 @@ int m6=0;
 int m7=0;
 int m8=0;
 int m9=0;
+c11(){
+  if(count11==10) {
+    count11 = 0;
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/win.wav"),
+    );
+  }
+}
+c1(){
+  if(count12==2){
+    AssetsAudioPlayer.newPlayer().open(
+      Audio("assets/loser.ogg"),
+    );
+    count12=0;
+  }
+}
 lvl2f1(){
   if(b11==1 && b12==1) {
     count11=count11+1;
@@ -557,7 +589,7 @@ lvl2f8(){
     m4=0;
     m5=0;
   }
-  else if(b4!=1 && m5==1){
+  else if(m4!=1 && m5==1){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/not.ogg"),
     );
@@ -605,290 +637,378 @@ class _sendState extends State<send> {
         title:Text('Matching game'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children:[
-              Text('Level 2',
-                style: TextStyle(
-                  fontSize:30,
-                  color: Colors.black87,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.yellow,
+                Colors.green,
+                Colors.black87,
+
+              ],
+            )
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children:[
+                Text('Level 2',
+                  style: TextStyle(
+                    fontSize:30,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        b11=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch3.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/a3.png",
+                        height: 60,
+                        width: 66,
                       ),
                     ),
-                  ),
-                ],
-
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                        b14=1;
+                        lvl2f2();
+                        c11();
+                        c1();
+                      },
+                      child: Text('2',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
 
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        b13=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch2.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/a2.jpg",
+                        height: 60,
+                        width: 66,
                       ),
                     ),
-                  ),
-                ],
-
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                        b16=1;
+                        lvl2f3();
+                        c11();
+                        c1();
+                      },
+                      child: Text('5',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
 
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        b15=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch5.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/a5.png",
+                        height: 60,
+                        width: 66,
                       ),
                     ),
-                  ),
-                ],
-
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                        b12=1;
+                        lvl2f1();
+                        c11();
+                        c1();
+                      },
+                      child: Text('3',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.orange,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
 
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        b17=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch4.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/a4.jpg",
+                        height: 60,
+                        width: 66,
                       ),
                     ),
-                  ),
-                ],
-
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                        b18=1;
+                        lvl2f4();
+                        c11();
+                        c1();
+                      },
+                      child: Text('4',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.purple,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
 
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        b19=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch1.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/a1.jpg",
+                        height: 60,
+                        width: 66,
                       ),
                     ),
-                  ),
-                ],
-
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed:(){
-                    },
-                    child: Image.asset("images/2.JPG",
-                      height: 60,
-                      width: 66,
-                    ),
-                  ),
-                  Spacer(),
-                  TextButton(
-                    onPressed:(){
-
-
-                    },
-                    child: Text('4',
-                      style: TextStyle(
-                        fontSize:22,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                       m3=1;
+                       lvl2f7();
+                       c11();
+                       c1();
+                      },
+                      child: Text('7',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.pink,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
 
-              ),
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        m=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch6.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/six.jpg",
+                        height: 60,
+                        width: 66,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+                      b110=1;
+                      lvl2f5();
+                      c11();
+                      c1();
+                      },
+                      child: Text('1',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
 
-            ],
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        m4=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch8.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/8.jpg",
+                        height: 60,
+                        width: 66,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+m1=1;
+lvl2f6();
+c11();
+c1();
+
+                      },
+                      child: Text('6',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.lightGreen,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        m2=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch7.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/7.JPG",
+                        height: 60,
+                        width: 66,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+
+m7=1;
+lvl2f9();
+c11();
+c1();
+                      },
+                      child: Text('9',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.deepPurpleAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        m8=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch10.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/10.jpg",
+                        height: 60,
+                        width: 66,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+m5=1;
+lvl2f8();
+c11();
+c1();
+                      },
+                      child: Text('8',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+
+                ),
+                SizedBox(height: 14,),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        m6=1;
+                        AssetsAudioPlayer.newPlayer().open(
+                          Audio("assets/touch9.ogg"),
+                        );
+                      },
+                      child: Image.asset("images/9.jpg",
+                        height: 60,
+                        width: 66,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed:(){
+m9=1;
+lvl2f10();
+c11();
+c1();
+                      },
+                      child: Text('10',
+                        style: TextStyle(
+                          fontSize:22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+
+                ),
+                SizedBox(height: 14,),
+
+              ],
+            ),
           ),
         ),
       ),
