@@ -69,6 +69,7 @@ class home extends StatefulWidget {
   State<home> createState() => _homeState();
 
 }
+
 int b1=0;
 int b2=0;
 int b3=0;
@@ -185,13 +186,31 @@ function5(){
   }
 }
 class _homeState extends State<home> {
+  List<Widget> navItems = [
+    ElevatedButton(onPressed: () {
+      Get.to(gamerule());
+    }, child: Text("Game Rule")),
+    ElevatedButton(onPressed: () {
+      Get.to(about());
+    }, child: Text("About")),
+  ];
+  bool mobile = false;
   @override
   Widget build(BuildContext context) {
+    mobile = MediaQuery.of(context).size.width > 700 ? false : true;
     return Scaffold(
       appBar: AppBar(
         title:Text('Matching game'),
+        actions: mobile ? null : navItems,
         centerTitle: true,
       ),
+      drawer: mobile
+          ? Drawer(
+        child: ListView(
+          children: navItems,
+        ),
+      )
+          : null,
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -629,14 +648,34 @@ lvl2f10(){
   }
 }
 class _sendState extends State<send> {
+  List<Widget> navItems = [
+    ElevatedButton(onPressed: () {
+      Get.to(home());
+    }, child: Text("New Game")),
+    ElevatedButton(onPressed: () {
+      Get.to(home());
+    }, child: Text("Level 1")),
+    ElevatedButton(onPressed: () {
+      Get.to(send());
+    }, child: Text("Level 2")),
+  ];
+  bool mobile = false;
   @override
   Widget build(BuildContext context) {
-
+    mobile = MediaQuery.of(context).size.width > 700 ? false : true;
     return Scaffold(
       appBar: AppBar(
         title:Text('Matching game'),
+        actions: mobile ? null : navItems,
         centerTitle: true,
       ),
+      drawer: mobile
+          ? Drawer(
+        child: ListView(
+          children: navItems,
+        ),
+      )
+          : null,
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -1015,4 +1054,5 @@ c1();
     );
   }
 }
+
 
