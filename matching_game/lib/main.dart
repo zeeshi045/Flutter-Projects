@@ -191,10 +191,10 @@ class _homeState extends State<home>with TickerProviderStateMixin {
       Get.to(home());
     }, child: Text("New Game")),
     ElevatedButton(onPressed: () {
-      Get.to(home());
+      Get.to(gamer());
     }, child: Text("Game Rule")),
     ElevatedButton(onPressed: () {
-      Get.to(home());
+      Get.to(about());
     }, child: Text("About")),
 
   ];
@@ -672,7 +672,7 @@ class _sendState extends State<send> with TickerProviderStateMixin{
       Get.to(home());
     }, child: Text("Level 1")),
     ElevatedButton(onPressed: () {
-      Get.to(send());
+      Get.to(about());
     }, child: Text("About")),
   ];
   bool mobile = false;
@@ -1087,7 +1087,73 @@ class about extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home:Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+              centerTitle: true,
+            title: Text('About'),
+
+          ),
+        body:Center(
+          child: Container(
+height: 150,
+            width: 300,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Color.fromRGBO(204,119,115,0.5),
+            ),
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment:CrossAxisAlignment.start ,
+             children:[
+               Text('1) Apps have a Splash  Screen .\n'),
+               Text('2) Apps have an Icon.\n'),
+               Text('3) Apps have a Navigation Bar .\n'),
+               Text('3) Apps have two levels .\n'),
+             ],
+    ),
+          ),
+        ),
+    ),
+    );
+  }
+}
+class gamer extends StatelessWidget {
+  const gamer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          centerTitle: true,
+          title: Text('Game Rule'),
+
+        ),
+        body:Center(
+          child: Container(
+            height: 201,
+            width: 300,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Color.fromRGBO(204,119,115,0.5),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment:CrossAxisAlignment.start ,
+              children:[
+                Text('1) Apps have two levels .\n'),
+                Text('2)Level 1 when user click on it: \n   a)User can select firstly from finger image side   and then select from number side.\n   b)if user greater then 2 wrong answers,user   will lose the game and not move to next level   until completed level 1.\n   c)if user win the game,user will move on   automaticatically next level.'),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
