@@ -19,6 +19,7 @@ class _guess_gameState extends State<guess_game> {
   int b1=0;
   int b2=0;
   int b3=0;
+  bool clr=false;
   Widget build(BuildContext context) {
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -34,7 +35,7 @@ class _guess_gameState extends State<guess_game> {
                     end: Alignment.bottomLeft,
                     colors: [
                       Colors.amber,
-                      Colors.black87,
+                      Colors.white,
                     ],
                   )
               ),
@@ -96,6 +97,7 @@ class _guess_gameState extends State<guess_game> {
                       onPressed: () {
                         if (x == 1) {
                           if (b1 == n1) {
+
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/correct.ogg"),
                             );
