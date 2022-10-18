@@ -20,6 +20,7 @@ class _guess_gameState extends State<guess_game> {
   int b2=0;
   int b3=0;
   bool clr=false;
+  Color  c=Colors.orangeAccent;
   Widget build(BuildContext context) {
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -40,8 +41,16 @@ class _guess_gameState extends State<guess_game> {
                   )
               ),
               child:Center(
-                child: Column( mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(
                   children: [
+                    SizedBox(height: 20,),
+                    Text('Range is (1-25)',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),),
+                    SizedBox(height: 50,),
                     TextButton(
                       onPressed: (){
                         Random random = new Random();
@@ -93,65 +102,96 @@ class _guess_gameState extends State<guess_game> {
                     padding: EdgeInsets.symmetric(horizontal: 35,vertical: 20)),
               ),
                     SizedBox(height: 10,),
-                    TextButton(
-                      onPressed: () {
-                        if (x == 1) {
-                          if (b1 == n1) {
-
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/correct.ogg"),
-                            );
-                            print("correct");
+                    Container(
+                      color: Colors.red,
+                      child: TextButton(
+                        onPressed: () {
+                          if (x == 1) {
+                            if (b1 == n1) {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/correct.ogg"),
+                              );
+                              print("correct");
+                            }
+                            else {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/not.ogg"),
+                              );
+                              print("wrong");
+                            }
                           }
-                          else {
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/not.ogg"),
-                            );
-                            print("wrong");
-                          }
-                        }
 
-                      },
-                      child: Text("a)      $b1"),
+                        },
+                        child: Text("a)      $b1"),
+                      ),
                     ),
-                    TextButton(
-                      onPressed: (){
-                        if(x==1){
-                          if (b2 == n1) {
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/correct.ogg"),
-                            );
-                            print("correct");
+                    Container(
+                      child: TextButton(
+                        onPressed: (){
+                          if(x==1){
+                            if (b2 == n1) {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/correct.ogg"),
+                              );
+                              print("correct");
+                            }
+                            else {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/not.ogg"),
+                              );
+                              print("wrong");
+                            }
                           }
-                          else {
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/not.ogg"),
-                            );
-                            print("wrong");
-                          }
-                        }
 
-                      },
-                      child: Text("b)      $b2"),
+                        },
+                        child: Text("b)      $b2"),
+                      ),
                     ),
-                    TextButton(
-                      onPressed: (){
-                        if(x==1) {
-                          if (b3 == n1) {
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/correct.ogg"),
-                            );
-                            print("correct");
+                    Container(
+                      child: TextButton(
+                        onPressed: (){
+                          if(x==1) {
+                            if (b3 == n1) {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/correct.ogg"),
+                              );
+                              print("correct");
+                            }
+                            else {
+                              AssetsAudioPlayer.newPlayer().open(
+                                Audio("assets/not.ogg"),
+                              );
+                              print("wrong");
+                            }
                           }
-                          else {
-                            AssetsAudioPlayer.newPlayer().open(
-                              Audio("assets/not.ogg"),
-                            );
-                            print("wrong");
-                          }
-                        }
-                      },
-                      child: Text("c)      $b3"),
+                        },
+                        child: Text("c)      $b3"),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    TextButton(onPressed: (){
+                      setState(() {
+                         x=0;
+                         n1=0;
+                       n2=0;
+                      n3=0;
+                       n4=0;
+                        b1=0;
+                       b2=0;
+                        b3=0;
+                      });
+                    }, child: Text('Reset',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),),
+                      style: ElevatedButton.styleFrom(
+                          shadowColor: Colors.green,
+                          backgroundColor: Colors.blue,
+                          shape: StadiumBorder(),
+                          padding: EdgeInsets.symmetric(horizontal: 35,vertical: 20)),
+
                     ),
                   ],
                 ),
