@@ -19,15 +19,15 @@ class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-
+        appBar: AppBar(
+          centerTitle: true,
+          title:Text('Guess_game'),
+        ),
         body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-
             child: first(),
           ),
-        ),
       ),
     );
   }
@@ -41,159 +41,279 @@ class first extends StatefulWidget {
 class _firstState extends State<first> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "Question 1"),
-            onChanged:(String text){
-              print("Text $text");
-              q1= text;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-              q1= text;
-            },
+    return SingleChildScrollView(
+      child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children:[
+              Text(
+                'Question no 1',style: TextStyle(
+                fontSize: 16,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
+              ),
+              SizedBox(height: 10,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Question 1",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                // decoration: new InputDecoration.collapsed(hintText: "Question 1"),
+                onChanged:(String text){
+                  print("Text $text");
+                  q1= text;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                  q1= text;
+                },
+              ),
+              SizedBox(height: 20,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Answer",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  if(text=="true"){
+                    b1=true;
+                  }
+                  else{
+                    b1=false;
+                  }
+                  b1= text as bool;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                },
+              ),
+              SizedBox(height: 10,),
+              Text(
+                'Question no 2',style: TextStyle(
+                fontSize: 16,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
+              ),
+              SizedBox(height: 10,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Question 2",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  q2= text;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                  q2= text;
+                },
+              ),
+              SizedBox(height: 13,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Answer",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  if(text=="true"){
+                    b2=true;
+                  }
+                  else{
+                    b2=false;
+                  }
+                  b2= text as bool;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                },
+              ),
+              SizedBox(height: 10,),
+              Text(
+                'Question no 3',style: TextStyle(
+                fontSize: 16,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
+              ),
+              SizedBox(height: 10,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Question 3",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  q3= text;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                  q3= text;
+                },
+              ),
+              SizedBox(height: 13,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Answer",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  if(text=="true"){
+                    b3=true;
+                  }
+                  else{
+                    b3=false;
+                  }
+                  b3= text as bool;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                },
+              ),
+              SizedBox(height: 10,),
+              Text(
+                'Question no 4',style: TextStyle(
+                fontSize: 16,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
+              ),
+              SizedBox(height: 10,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Question 4",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  q4= text;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                  q4= text;
+                },
+              ),
+              SizedBox(height: 13,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Answer",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  if(text=="true"){
+                    b4=true;
+                  }
+                  else{
+                    b4=false;
+                  }
+                  b4= text as bool;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                },
+              ),
+              SizedBox(height: 10,),
+              Text(
+                'Question no 5',style: TextStyle(
+                fontSize: 16,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
+              ),
+              SizedBox(height: 10,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Question 5",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  q5= text;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                  q5= text;
+                },
+              ),
+              SizedBox(height: 13,),
+              new TextField(
+                decoration: InputDecoration(
+                  hintText: "Answer",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                  ),
+                ),
+                onChanged:(String text){
+                  print("Text $text");
+                  if(text=="true"){
+                    b5=true;
+                  }
+                  else{
+                    b5=false;
+                  }
+                  b1= text as bool;
+                },
+                onSubmitted:(String text) {
+                  print("Text $text");
+                },
+              ),
+              SizedBox(height: 15,),
+              TextButton(onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  QuizPage()),
+                );
+
+              }, child: Text('Submit',
+              style: TextStyle(
+                color: Colors.black,
+              ),),
+                style: ElevatedButton.styleFrom(
+                    shadowColor: Colors.black,
+                    backgroundColor: Colors.blueAccent,
+                    shape: StadiumBorder(),
+                    padding: EdgeInsets.symmetric(horizontal: 35,vertical: 20)),
+              ),
+
+            ],
           ),
-          SizedBox(height: 13,),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "ans"),
-            onChanged:(String text){
-              print("Text $text");
-              if(text=="true"){
-                b1=true;
-              }
-              else{
-                b1=false;
-              }
-              b1= text as bool;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-            },
-          ),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "Question 2"),
-            onChanged:(String text){
-              print("Text $text");
-              q2= text;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-              q2= text;
-            },
-          ),
-          SizedBox(height: 13,),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "ans"),
-            onChanged:(String text){
-              print("Text $text");
-              if(text=="true"){
-                b2=true;
-              }
-              else{
-                b2=false;
-              }
-              b2= text as bool;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-            },
-          ),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "Question 3"),
-            onChanged:(String text){
-              print("Text $text");
-              q3= text;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-              q3= text;
-            },
-          ),
-          SizedBox(height: 13,),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "ans"),
-            onChanged:(String text){
-              print("Text $text");
-              if(text=="true"){
-                b3=true;
-              }
-              else{
-                b3=false;
-              }
-              b3= text as bool;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-            },
-          ),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "Question 4"),
-            onChanged:(String text){
-              print("Text $text");
-              q4= text;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-              q4= text;
-            },
-          ),
-          SizedBox(height: 13,),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "ans"),
-            onChanged:(String text){
-              print("Text $text");
-              if(text=="true"){
-                b4=true;
-              }
-              else{
-                b4=false;
-              }
-              b4= text as bool;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-            },
-          ),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "Question 5"),
-            onChanged:(String text){
-              print("Text $text");
-              q5= text;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-              q5= text;
-            },
-          ),
-          SizedBox(height: 13,),
-          new TextField(
-            decoration: new InputDecoration.collapsed(hintText: "ans"),
-            onChanged:(String text){
-              print("Text $text");
-              if(text=="true"){
-                b5=true;
-              }
-              else{
-                b5=false;
-              }
-              b1= text as bool;
-            },
-            onSubmitted:(String text) {
-              print("Text $text");
-            },
-          ),
-          TextButton(onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>  QuizPage()),
-            );
-          }, child: Text('Submit'))
-        ],
-      ),
+        ),
     );
+
   }
 }
 
