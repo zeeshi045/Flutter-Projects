@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'question.dart';
 QuizBrain quizBrain = QuizBrain();
-String  ? getQuestion ;
+String ?getQuestion=q1;
 String   q1='null';
 bool b1 =false;
 String  q2='null';
@@ -14,6 +14,8 @@ String  q4='null';
 bool b4 =false;
 String  q5='null';
 bool b5 =false;
+int c=0;
+int c1=0;
 void main() => runApp(Quizzler());
 class Quizzler extends StatelessWidget {
   @override
@@ -23,7 +25,8 @@ class Quizzler extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title:Text('Guess_game'),
+          backgroundColor: Colors.black,
+          title:Text('Make Questions',),
         ),
         body: SafeArea(
             child: first(),
@@ -41,277 +44,316 @@ class first extends StatefulWidget {
 class _firstState extends State<first> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children:[
-              Text(
-                'Question no 1',style: TextStyle(
-                fontSize: 16,
-                fontWeight:FontWeight.bold,
-                color: Colors.black,
-              ),
-              ),
-              SizedBox(height: 10,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Question 1",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                // decoration: new InputDecoration.collapsed(hintText: "Question 1"),
-                onChanged:(String text){
-                  print("Text $text");
-                  q1= text;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                  q1= text;
-                },
-              ),
-              SizedBox(height: 20,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Answer",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  if(text=="true"){
-                    b1=true;
-                  }
-                  else{
-                    b1=false;
-                  }
-                  b1= text as bool;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                },
-              ),
-              SizedBox(height: 10,),
-              Text(
-                'Question no 2',style: TextStyle(
-                fontSize: 16,
-                fontWeight:FontWeight.bold,
-                color: Colors.black,
-              ),
-              ),
-              SizedBox(height: 10,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Question 2",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  q2= text;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                  q2= text;
-                },
-              ),
-              SizedBox(height: 13,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Answer",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  if(text=="true"){
-                    b2=true;
-                  }
-                  else{
-                    b2=false;
-                  }
-                  b2= text as bool;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                },
-              ),
-              SizedBox(height: 10,),
-              Text(
-                'Question no 3',style: TextStyle(
-                fontSize: 16,
-                fontWeight:FontWeight.bold,
-                color: Colors.black,
-              ),
-              ),
-              SizedBox(height: 10,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Question 3",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  q3= text;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                  q3= text;
-                },
-              ),
-              SizedBox(height: 13,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Answer",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  if(text=="true"){
-                    b3=true;
-                  }
-                  else{
-                    b3=false;
-                  }
-                  b3= text as bool;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                },
-              ),
-              SizedBox(height: 10,),
-              Text(
-                'Question no 4',style: TextStyle(
-                fontSize: 16,
-                fontWeight:FontWeight.bold,
-                color: Colors.black,
-              ),
-              ),
-              SizedBox(height: 10,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Question 4",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  q4= text;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                  q4= text;
-                },
-              ),
-              SizedBox(height: 13,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Answer",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  if(text=="true"){
-                    b4=true;
-                  }
-                  else{
-                    b4=false;
-                  }
-                  b4= text as bool;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                },
-              ),
-              SizedBox(height: 10,),
-              Text(
-                'Question no 5',style: TextStyle(
-                fontSize: 16,
-                fontWeight:FontWeight.bold,
-                color: Colors.black,
-              ),
-              ),
-              SizedBox(height: 10,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Question 5",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  q5= text;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                  q5= text;
-                },
-              ),
-              SizedBox(height: 13,),
-              new TextField(
-                decoration: InputDecoration(
-                  hintText: "Answer",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                  ),
-                ),
-                onChanged:(String text){
-                  print("Text $text");
-                  if(text=="true"){
-                    b5=true;
-                  }
-                  else{
-                    b5=false;
-                  }
-                  b1= text as bool;
-                },
-                onSubmitted:(String text) {
-                  print("Text $text");
-                },
-              ),
-              SizedBox(height: 15,),
-              TextButton(onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  QuizPage()),
-                );
-
-              }, child: Text('Submit',
-              style: TextStyle(
-                color: Colors.black,
-              ),),
-                style: ElevatedButton.styleFrom(
-                    shadowColor: Colors.black,
-                    backgroundColor: Colors.blueAccent,
-                    shape: StadiumBorder(),
-                    padding: EdgeInsets.symmetric(horizontal: 35,vertical: 20)),
-              ),
-
-            ],
+    return Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.amber,
+                  Colors.white,
+                ],
+              )
           ),
-        ),
+      child: SingleChildScrollView(
+        child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children:[
+                Text(
+                  'Question no 1',style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black,
+                ),
+                ),
+                SizedBox(height: 10,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Question 1",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  // decoration: new InputDecoration.collapsed(hintText: "Question 1"),
+                  onChanged:(String text){
+                    print("Text $text");
+                    q1= text;
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                    q1= text;
+                  },
+                ),
+                SizedBox(height: 20,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Answer",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    if(text=="true"){
+                      setState(() {
+                        c++;
+                      });
+                      b1=true;
+                    }
+                    else{
+                      setState(() {
+                        c1++;
+                      });
+                      b1=false;
+                    }
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                  },
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  'Question no 2',style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black,
+                ),
+                ),
+                SizedBox(height: 10,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Question 2",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    q2= text;
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                    q2= text;
+                  },
+                ),
+                SizedBox(height: 13,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Answer",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    if(text=="true"){
+                      setState(() {
+                        c++;
+                      });
+                      b2=true;
+                    }
+                    else{
+                      setState(() {
+                        c1++;
+                      });
+                      b2=false;
+                    }
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                  },
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  'Question no 3',style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black,
+                ),
+                ),
+                SizedBox(height: 10,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Question 3",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    q3= text;
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                    q3= text;
+                  },
+                ),
+                SizedBox(height: 13,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Answer",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    if(text=="true"){
+                      setState(() {
+                        c++;
+                      });
+                      b3=true;
+                    }
+                    else{
+                      setState(() {
+                        c1++;
+                      });
+                      b3=false;
+                    }
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                  },
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  'Question no 4',style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black,
+                ),
+                ),
+                SizedBox(height: 10,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Question 4",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    q4= text;
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                    q4= text;
+                  },
+                ),
+                SizedBox(height: 13,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Answer",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    if(text=="true"){
+                      setState(() {
+                        c++;
+                      });
+                      b4=true;
+                    }
+                    else{
+                      setState(() {
+                        c1++;
+                      });
+                      b4=false;
+                    }
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                  },
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  'Question no 5',style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black,
+                ),
+                ),
+                SizedBox(height: 10,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Question 5",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    q5= text;
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                    q5= text;
+                  },
+                ),
+                SizedBox(height: 13,),
+                new TextField(
+                  decoration: InputDecoration(
+                    hintText: "Answer",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
+                  ),
+                  onChanged:(String text){
+                    print("Text $text");
+                    if(text=="true"){
+                      setState(() {
+                        c++;
+                      });
+                      b5=true;
+                    }
+                    else{
+                      setState(() {
+                        c1++;
+                      });
+                      b5=false;
+                    }
+                  },
+                  onSubmitted:(String text) {
+                    print("Text $text");
+                  },
+                ),
+                SizedBox(height: 15,),
+                TextButton(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  QuizPage()),
+                  );
+
+                }, child: Text('Submit',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),),
+                  style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.black,
+                      backgroundColor: Colors.blueAccent,
+                      shape: StadiumBorder(),
+                      padding: EdgeInsets.symmetric(horizontal: 35,vertical: 20)),
+                ),
+
+              ],
+            ),
+          ),
+      ),
     );
 
   }
@@ -340,13 +382,14 @@ class _QuizPageState extends State<QuizPage> {
         //Modified for our purposes:
         Alert(
           context: context,
-          title: 'Finished!',
+          title: 'Finished! Correct ans $c \n worng ans is $c1',
           desc: 'You\'ve reached the end of the quiz.',
         ).show();
 
         //TODO Step 4 Part C - reset the questionNumber,
         quizBrain.reset();
-
+        c=0;
+        c1=0;
         //TODO Step 4 Part D - empty out the scoreKeeper.
         scoreKeeper = [];
       }
@@ -371,77 +414,92 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
+    return Scaffold(
+        body: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.black,
+                    Colors.amber,
 
-        Expanded(
-          flex: 7,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                //quizBrain.getQuestionText(),
-                //getQuestion!,
-                getQuestion.toString(),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.orangeAccent,
+                  ],
+                )
+            ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+
+            Expanded(
+              flex: 7,
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Center(
+                  child: Text(
+                    //quizBrain.getQuestionText(),
+                    //getQuestion!,
+                    getQuestion.toString(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: TextButton(
-              child: Text(
-                'True',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: TextButton(
+                  child: Text(
+                    'True',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    getQuestion = quizBrain.getQuestionText();
+                    //The user picked true.
+                    checkAnswer(true);
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                  ),
                 ),
               ),
-              onPressed: () {
-                getQuestion = quizBrain.getQuestionText();
-                //The user picked true.
-                checkAnswer(true);
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.green,
-              ),
             ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.red,
-              ),
-              child: Text(
-                'False',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: Text(
+                    'False',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    getQuestion = quizBrain.getQuestionText();
+                    //The user picked false.
+                    checkAnswer(false);
+                  },
                 ),
               ),
-              onPressed: () {
-                getQuestion = quizBrain.getQuestionText();
-                //The user picked false.
-                checkAnswer(false);
-              },
             ),
-          ),
+            Row(
+              children: scoreKeeper,
+            )
+          ],
         ),
-        Row(
-          children: scoreKeeper,
-        )
-      ],
+      ),
     );
   }
 }
@@ -477,8 +535,7 @@ class QuizBrain {
     // Question(
     //     'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
     //     true),
-  ];
-
+  ]..shuffle();
   void nextQuestion() {
     if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;
