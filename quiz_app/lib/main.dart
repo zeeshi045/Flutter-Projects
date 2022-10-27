@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 //TODO: Step 2 - Import the rFlutter_Alert package here.
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'question.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 QuizBrain quizBrain = QuizBrain();
-String ?getQuestion=q1;
+String ?getQuestion;
 String   q1='null';
 bool b1 =false;
 String  q2='null';
@@ -16,7 +18,7 @@ String  q5='null';
 bool b5 =false;
 int c=0;
 int c1=0;
-void main() => runApp(Quizzler());
+void main() => runApp(firstPage());
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -98,15 +100,9 @@ class _firstState extends State<first> {
                   onChanged:(String text){
                     print("Text $text");
                     if(text=="true"){
-                      setState(() {
-                        c++;
-                      });
                       b1=true;
                     }
                     else{
-                      setState(() {
-                        c1++;
-                      });
                       b1=false;
                     }
                   },
@@ -152,15 +148,9 @@ class _firstState extends State<first> {
                   onChanged:(String text){
                     print("Text $text");
                     if(text=="true"){
-                      setState(() {
-                        c++;
-                      });
                       b2=true;
                     }
                     else{
-                      setState(() {
-                        c1++;
-                      });
                       b2=false;
                     }
                   },
@@ -206,15 +196,9 @@ class _firstState extends State<first> {
                   onChanged:(String text){
                     print("Text $text");
                     if(text=="true"){
-                      setState(() {
-                        c++;
-                      });
                       b3=true;
                     }
                     else{
-                      setState(() {
-                        c1++;
-                      });
                       b3=false;
                     }
                   },
@@ -260,15 +244,9 @@ class _firstState extends State<first> {
                   onChanged:(String text){
                     print("Text $text");
                     if(text=="true"){
-                      setState(() {
-                        c++;
-                      });
                       b4=true;
                     }
                     else{
-                      setState(() {
-                        c1++;
-                      });
                       b4=false;
                     }
                   },
@@ -314,15 +292,9 @@ class _firstState extends State<first> {
                   onChanged:(String text){
                     print("Text $text");
                     if(text=="true"){
-                      setState(() {
-                        c++;
-                      });
                       b5=true;
                     }
                     else{
-                      setState(() {
-                        c1++;
-                      });
                       b5=false;
                     }
                   },
@@ -369,7 +341,6 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAnswer(bool userPickedAnswer) {
     bool? correctAnswer = quizBrain.getCorrectAnswer();
-
     setState(() {
       //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If so,
       //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
@@ -380,16 +351,35 @@ class _QuizPageState extends State<QuizPage> {
         //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
 
         //Modified for our purposes:
-        Alert(
-          context: context,
-          title: 'Finished! Correct ans $c \n worng ans is $c1',
-          desc: 'You\'ve reached the end of the quiz.',
-        ).show();
+        // Alert(
+        //   context: context,
+        //   title: 'Finished! Correct ans $c \n worng ans is $c1',
+        //   desc: 'You\'ve reached the end of the quiz.',
+        //
+        // ).show();
+        AlertDialog alert = AlertDialog(
+          title: Text("$c1"),
+          content: Text("$c."),
+          actions: [
+            TextButton(
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+              child: Text('oky',),
+            ),
 
-        //TODO Step 4 Part C - reset the questionNumber,
-        quizBrain.reset();
+          ],
+        );
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return alert;
+          },
+        );
         c=0;
         c1=0;
+        //TODO Step 4 Part C - reset the questionNumber,
+        quizBrain.reset();
         //TODO Step 4 Part D - empty out the scoreKeeper.
         scoreKeeper = [];
       }
@@ -397,15 +387,18 @@ class _QuizPageState extends State<QuizPage> {
       //TODO: Step 6 - If we've not reached the end, ELSE do the answer checking steps below 👇
       else {
         if (userPickedAnswer == correctAnswer) {
+          c=c+1;
           scoreKeeper.add(Icon(
             Icons.check,
             color: Colors.green,
           ));
         } else {
+          c1=c1+1;
           scoreKeeper.add(Icon(
             Icons.close,
             color: Colors.red,
           ));
+
         }
         quizBrain.nextQuestion();
       }
@@ -504,7 +497,7 @@ class _QuizPageState extends State<QuizPage> {
   }
 }
 class QuizBrain {
-  int _questionNumber =0;
+  int _questionNumber=0;
   List<Question>  _questionBank = [
     Question(q1,b1),
     Question(q2,b2),
@@ -537,11 +530,10 @@ class QuizBrain {
     //     true),
   ]..shuffle();
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
+    if (_questionNumber <_questionBank.length - 1) {
       _questionNumber++;
     }
   }
-
   String? getQuestionText() {
     return _questionBank[_questionNumber].questionText;
   }
@@ -568,4 +560,57 @@ class QuizBrain {
   void reset() {
     _questionNumber = 0;
   }
+  int get_number() {
+    return _questionNumber;
+  }
 }
+class firstPage extends StatelessWidget {
+  const firstPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+            color: Colors.amber,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top:80),
+                  child:Image.asset(
+                    'assets/quiz.gif',
+                    height: 140,
+                    width: 120,
+                  ),
+                ),
+           Padding(
+             padding: const EdgeInsets.only(top: 150),
+             child: Center(
+              child: TextButton(
+                onPressed: () {
+                  Get.to(Quizzler());
+                },
+                child: Icon(
+                Icons.play_circle_fill_outlined,
+                color: Colors.black87,
+                 size: 100.0,
+                ),
+
+              ),
+        ),
+           ),
+                Text('Play',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),)
+              ],
+            ),
+          ),
+        ),
+    );
+  }
+}
+
