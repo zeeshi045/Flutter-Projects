@@ -340,13 +340,12 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
   void checkAnswer(bool userPickedAnswer) {
-    bool? correctAnswer = quizBrain.getCorrectAnswer();
     setState(() {
+      bool? correctAnswer = quizBrain.getCorrectAnswer();
       //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If so,
       //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
       if (quizBrain.isFinished() == true) {
         //TODO Step 4 Part A - show an alert using rFlutter_alert,
-
         //This is the code for the basic alert from the docs for rFlutter Alert:
         //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
 
@@ -358,8 +357,8 @@ class _QuizPageState extends State<QuizPage> {
         //
         // ).show();
         AlertDialog alert = AlertDialog(
-          title: Text("$c1"),
-          content: Text("$c."),
+          title: Text("Correct Answser is :$c"),
+          content: Text("Wrong Answer is :$c1."),
           actions: [
             TextButton(
               onPressed: (){
@@ -531,7 +530,7 @@ class QuizBrain {
   ]..shuffle();
   void nextQuestion() {
     if (_questionNumber <_questionBank.length - 1) {
-      _questionNumber++;
+      _questionNumber= _questionNumber+1;
     }
   }
   String? getQuestionText() {
@@ -559,9 +558,6 @@ class QuizBrain {
   //TODO: Step 4 part B - Create a reset() method here that sets the questionNumber back to 0.
   void reset() {
     _questionNumber = 0;
-  }
-  int get_number() {
-    return _questionNumber;
   }
 }
 class firstPage extends StatelessWidget {
