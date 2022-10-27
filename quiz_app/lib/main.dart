@@ -4,8 +4,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'question.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-QuizBrain quizBrain = QuizBrain();
-String ?getQuestion;
+QuizBrain obj = QuizBrain();
 String   q1='null';
 bool b1 =false;
 String  q2='null';
@@ -338,13 +337,13 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-
+  void fun() {
+    scoreKeeper.add(Icon(Icons.ac_unit, color: Colors.white,),);
+  }
   void checkAnswer(bool userPickedAnswer) {
     setState(() {
-      bool? correctAnswer = quizBrain.getCorrectAnswer();
-      //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If so,
-      //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
-      if (quizBrain.isFinished() == true) {
+      bool? correctAnswer = obj.getCorrectAnswer();
+      if(obj.isFinished()==true){
         //TODO Step 4 Part A - show an alert using rFlutter_alert,
         //This is the code for the basic alert from the docs for rFlutter Alert:
         //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
@@ -378,7 +377,7 @@ class _QuizPageState extends State<QuizPage> {
         c=0;
         c1=0;
         //TODO Step 4 Part C - reset the questionNumber,
-        quizBrain.reset();
+        obj.reset();
         //TODO Step 4 Part D - empty out the scoreKeeper.
         scoreKeeper = [];
       }
@@ -399,7 +398,7 @@ class _QuizPageState extends State<QuizPage> {
           ));
 
         }
-        quizBrain.nextQuestion();
+        obj.nextQuestion();
       }
     });
   }
@@ -432,7 +431,7 @@ class _QuizPageState extends State<QuizPage> {
                   child: Text(
                     //quizBrain.getQuestionText(),
                     //getQuestion!,
-                    getQuestion.toString(),
+                    obj.getQuestionText().toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 25.0,
@@ -454,7 +453,6 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                   onPressed: () {
-                    getQuestion = quizBrain.getQuestionText();
                     //The user picked true.
                     checkAnswer(true);
                   },
@@ -479,7 +477,6 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                   onPressed: () {
-                    getQuestion = quizBrain.getQuestionText();
                     //The user picked false.
                     checkAnswer(false);
                   },
@@ -503,6 +500,7 @@ class QuizBrain {
     Question(q3,b3),
     Question(q4,b4),
     Question(q5,b5),
+
     //Question('You can lead a cow down stairs but not up stairs.', false),
     // Question('Approximately one quarter of human bones are in the feet.', true),
     // Question('A slug\'s blood is green.', true),
@@ -544,7 +542,7 @@ class QuizBrain {
   //TODO: Step 3 Part A - Create a method called isFinished() here that checks to see if we have reached the last question. It should return (have an output) true if we've reached the last question and it should return false if we're not there yet.
 
   bool isFinished() {
-    if (_questionNumber >= _questionBank.length - 1) {
+    if (_questionNumber >=_questionBank.length - 1) {
       //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
 
       // print('Now returning true');
