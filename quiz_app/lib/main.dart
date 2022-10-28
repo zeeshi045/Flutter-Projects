@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 //TODO: Step 2 - Import the rFlutter_Alert package here.
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -17,7 +19,7 @@ String  q5='null';
 bool b5 =false;
 int c=0;
 int c1=0;
-void main() => runApp(firstPage());
+void main() => runApp(SplashScreen());
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -344,20 +346,24 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       bool? correctAnswer = obj.getCorrectAnswer();
       if(obj.isFinished()==true){
-        //TODO Step 4 Part A - show an alert using rFlutter_alert,
-        //This is the code for the basic alert from the docs for rFlutter Alert:
-        //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
-
-        //Modified for our purposes:
-        // Alert(
-        //   context: context,
-        //   title: 'Finished! Correct ans $c \n worng ans is $c1',
-        //   desc: 'You\'ve reached the end of the quiz.',
-        //
-        // ).show();
+        if (userPickedAnswer == correctAnswer) {
+          scoreKeeper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+          c=c+1;
+        }
+        else {
+          scoreKeeper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+          );
+          c1=c1+1;
+        }
         AlertDialog alert = AlertDialog(
-          title: Text("Correct Answser is :$c"),
-          content: Text("Wrong Answer is :$c1."),
+          title: Text("Correct Answser  :$c"),
+          content: Text("Wrong Answer :$c1"),
           actions: [
             TextButton(
               onPressed: (){
@@ -385,17 +391,19 @@ class _QuizPageState extends State<QuizPage> {
       //TODO: Step 6 - If we've not reached the end, ELSE do the answer checking steps below 👇
       else {
         if (userPickedAnswer == correctAnswer) {
-          c=c+1;
           scoreKeeper.add(Icon(
             Icons.check,
             color: Colors.green,
           ));
-        } else {
-          c1=c1+1;
+          c=c+1;
+        }
+        else {
           scoreKeeper.add(Icon(
             Icons.close,
             color: Colors.red,
-          ));
+          ),
+          );
+          c1=c1+1;
 
         }
         obj.nextQuestion();
@@ -608,3 +616,56 @@ class firstPage extends StatelessWidget {
   }
 }
 
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      title: 'Splash Screen',
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 7),
+            () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => firstPage())));
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.black,
+                Colors.orange,
+              ],
+            )
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Center(child: Image(image: AssetImage('assets/12.gif'), height:120)),
+            SizedBox(height: 10,),
+            SizedBox(
+              height:20,
+            ),
+            CircularProgressIndicator()
+          ],
+        ));
+  }
+}
