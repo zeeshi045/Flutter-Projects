@@ -5,8 +5,10 @@ import 'package:bml_calculator/textandIcon.dart';
 
 const activeColor=Color(0xFF1d1e33);
 const deactiveColor=Color(0xFF111328);
-
-
+enum Gender{
+  male,
+  female,
+}
 
 
 
@@ -27,12 +29,12 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Color maleclr=deactiveColor;
   Color femaleclr=deactiveColor;
-  void updatecolor(int gender){
-    if(gender==1){
+  void updatecolor(Gender gender){
+    if(gender==Gender.male){
       maleclr=activeColor;
       femaleclr=deactiveColor;
     }
-    if(gender==2){
+    if(gender==Gender.female){
       maleclr=deactiveColor;
       femaleclr=activeColor;
     }
@@ -54,7 +56,7 @@ class _InputPageState extends State<InputPage> {
           child:GestureDetector(
             onTap: (){
               setState(() {
-                updatecolor(1);
+                updatecolor(Gender.male);
               });
               print('click');
             },
@@ -70,7 +72,7 @@ class _InputPageState extends State<InputPage> {
             Expanded(child:GestureDetector(
               onTap: (){
                 setState(() {
-                  updatecolor(2);
+                  updatecolor(Gender.female);
                 });
               },
               child: RepeatContainerCode(
