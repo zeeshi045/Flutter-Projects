@@ -40,34 +40,29 @@ class _InputPageState extends State<InputPage> {
         Expanded(child: Row(
           children: [
             Expanded(
-          child:GestureDetector(
-            onTap: (){
+          child:RepeatContainerCode(
+            onPressed: (){
               setState(() {
                 selectgen=Gender.male;
               });
-              print('click');
             },
-            child: RepeatContainerCode(
-              colors:selectgen==Gender.male?activeColor:deactiveColor,
-              card: RepeatTextandIcon(
-                icon: FontAwesomeIcons.person,
-                label: 'MALE',
-              ),
+            colors:selectgen==Gender.male?activeColor:deactiveColor,
+            card: RepeatTextandIcon(
+              icon: FontAwesomeIcons.person,
+              label: 'MALE',
             ),
           ),
     ),
-            Expanded(child:GestureDetector(
-              onTap: (){
+            Expanded(child:RepeatContainerCode(
+              onPressed: (){
                 setState(() {
-                 selectgen=Gender.female;
+                  selectgen=Gender.female;
                 });
               },
-              child: RepeatContainerCode(
-                colors:selectgen==Gender.female?activeColor:deactiveColor,
-                card: RepeatTextandIcon(
-                  icon: FontAwesomeIcons.personDress,
-                  label: 'FEMALE',
-                ),
+              colors:selectgen==Gender.female?activeColor:deactiveColor,
+              card: RepeatTextandIcon(
+                icon: FontAwesomeIcons.personDress,
+                label: 'FEMALE',
               ),
             ),
             ),
@@ -76,6 +71,11 @@ class _InputPageState extends State<InputPage> {
 
         ),
           Expanded(child:RepeatContainerCode(
+            onPressed: (){
+              setState(() {
+                selectgen=Gender.male;
+              });
+            },
             colors:Colors.orangeAccent,
             card: RepeatTextandIcon(
               icon: FontAwesomeIcons.person,
@@ -85,6 +85,11 @@ class _InputPageState extends State<InputPage> {
           Expanded(child: Row(
             children: [
               Expanded(child:RepeatContainerCode(
+                onPressed: (){
+                  setState(() {
+                    selectgen=Gender.male;
+                  });
+                },
                 colors:Colors.amber,
                 card: RepeatTextandIcon(
                   icon: FontAwesomeIcons.person,
@@ -92,6 +97,11 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),),
               Expanded(child:RepeatContainerCode(
+                onPressed: (){
+                  setState(() {
+                    selectgen=Gender.male;
+                  });
+                },
                 colors:Colors.cyan,
                 card: RepeatTextandIcon(
                   icon: FontAwesomeIcons.person,
