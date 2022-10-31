@@ -17,6 +17,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectgen;
   int slider=180;
+  int sliderw=60;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +85,6 @@ class _InputPageState extends State<InputPage> {
           onChanged:(double newValue){
         setState(() {
           slider=newValue.round();
-
         });
           },
       ),
@@ -95,16 +95,24 @@ class _InputPageState extends State<InputPage> {
           Expanded(child: Row(
             children: [
               Expanded(child:RepeatContainerCode(
-                onPressed: (){
-                  setState(() {
-                    selectgen=Gender.male;
-                  });
-                },
-                colors:Colors.amber,
-                card: RepeatTextandIcon(
-                  icon: FontAwesomeIcons.person,
-                  label: 'Male',
-                ),
+                onPressed: (){},
+                colors:Color(0xFF1D1E33),
+
+                card:Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('WEIGHT',style: kstyle,),
+                    Text(sliderw.toString(),
+                    style:kstyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                      ],
+                    ),
+                  ],
+                )
               ),),
               Expanded(child:RepeatContainerCode(
                 onPressed: (){
