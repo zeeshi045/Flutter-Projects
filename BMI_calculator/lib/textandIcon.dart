@@ -1,3 +1,4 @@
+import 'package:bml_calculator/constant.dart';
 import 'package:flutter/material.dart';
 class RepeatTextandIcon extends StatelessWidget {
   RepeatTextandIcon({required this.label,required this.icon});
@@ -16,10 +17,7 @@ class RepeatTextandIcon extends StatelessWidget {
         ),
         Text(
           label,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-          ),
+          style:kstyle,
         ),
       ],
     );
