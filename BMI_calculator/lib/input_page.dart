@@ -16,6 +16,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectgen;
+  int slider=180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,9 +63,31 @@ class _InputPageState extends State<InputPage> {
             },
             colors:Color(0xFF1D1E33),
             card: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text('HEIGHT',
-      style: kstyle,),
+      Center(
+        child: Text('HEIGHT',
+        style: kstyle,),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(slider.toString(),style: kstyle,),
+          Text('cm',style: kstyle,),
+        ],
+      ),
+      Slider(value: slider.toDouble(),
+          min: 122,
+          max:220,
+          activeColor: Color(0xFFeb1555),
+          inactiveColor: Color(0xFF8d8e98),
+          onChanged:(double newValue){
+        setState(() {
+          slider=newValue.round();
+
+        });
+          },
+      ),
     ],
     ),
           ),
