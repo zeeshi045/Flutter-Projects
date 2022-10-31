@@ -18,6 +18,7 @@ class _InputPageState extends State<InputPage> {
   Gender? selectgen;
   int slider=180;
   int sliderw=60;
+  int age=16;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,30 +109,93 @@ class _InputPageState extends State<InputPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        
+roundicon(icondata: FontAwesomeIcons.plus,
+onPressed: (){
+  setState(() {
+    sliderw++;
+  });
+},),
+                        SizedBox(width: 10.0,),
+                        roundicon(icondata: FontAwesomeIcons.minus,
+    onPressed: () {
+      setState(() {
+        sliderw--;
+      });
+    })
                       ],
                     ),
                   ],
                 )
               ),),
               Expanded(child:RepeatContainerCode(
-                onPressed: (){
-                  setState(() {
-                    selectgen=Gender.male;
-                  });
-                },
-                colors:Colors.cyan,
-                card: RepeatTextandIcon(
-                  icon: FontAwesomeIcons.person,
-                  label: 'Male',
-                ),
+                onPressed: (){},
+                  colors:Color(0xFF1D1E33),
+                  card:Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('AGE',style: kstyle,),
+                      Text(age.toString(),
+                        style:kstyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          roundicon(icondata: FontAwesomeIcons.plus,
+                            onPressed: (){
+                              setState(() {
+                                age++;
+                              });
+                            },),
+                          SizedBox(width: 10.0,),
+                          roundicon(icondata: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              })
+                        ],
+                      ),
+                    ],
+                  )
               ),),
             ],
           ),
 
           ),
+          Container(
+            color: Color(0xFFEB1555),
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: 80.0,
+          ),
         ],
       ),
+
+    );
+  }
+}
+
+class roundicon extends StatelessWidget {
+  roundicon({
+    required this.icondata, this.onPressed});
+  final IconData icondata;
+  final void Function()? onPressed;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(onPressed:onPressed,
+      child: Icon(icondata),
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        height: 45.0,
+        width: 45.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+
+
+
 
     );
   }
