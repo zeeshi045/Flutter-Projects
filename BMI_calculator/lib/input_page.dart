@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bml_calculator/Container.dart';
 import 'package:bml_calculator/textandIcon.dart';
 import 'package:bml_calculator/result.dart';
+import 'package:bml_calculator/calculatorfile.dart';
 enum Gender{
   male,
   female,
@@ -75,7 +76,7 @@ class _InputPageState extends State<InputPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(slider.toString(),style: kstyle,),
+          Text(slider.toString(),style:kNumberStyle,),
           Text('cm',style: kstyle,),
         ],
       ),
@@ -105,7 +106,7 @@ class _InputPageState extends State<InputPage> {
                   children: [
                     Text('WEIGHT',style: kstyle,),
                     Text(sliderw.toString(),
-                    style:kstyle,
+                    style:kNumberStyle,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +137,7 @@ onPressed: (){
                     children: [
                       Text('AGE',style: kstyle,),
                       Text(age.toString(),
-                        style:kstyle,
+                        style:kNumberStyle,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -165,7 +166,13 @@ onPressed: (){
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder:( context)=>ResultScreen()));
+              Calculator_Brain obj =Calculator_Brain(height: slider,weight:sliderw);
+
+              Navigator.push(context,MaterialPageRoute(builder:( context)=>ResultScreen(
+                bmiresult: obj.calculateBMI().toString(),
+                resultText: obj.getResult(),
+                interpretation: obj.getInterpretation(),
+              )));
             },
             child: Container(
               child:Center(child: Text('Calculate',style: kNumberStyle,)),
