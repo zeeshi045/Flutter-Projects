@@ -14,6 +14,7 @@ final String interpretation;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title:Text('BMI Result'),
         backgroundColor: Color(0xFF0A0E21),
       ),
