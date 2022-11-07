@@ -10,6 +10,7 @@ class Screen0 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.red,
         title: Text('Screen0'),
       ),
@@ -22,7 +23,7 @@ class Screen0 extends StatelessWidget {
                style: TextButton.styleFrom(
                  backgroundColor: Colors.red,
                ),
-                child: Text('Go forward S1'),
+                child: Text('Go to  Screen 1'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/first');
                 },
@@ -35,7 +36,7 @@ class Screen0 extends StatelessWidget {
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
-                  child: Text('Go forward S1'),
+                  child: Text('Go to Screen 2'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/second');
 

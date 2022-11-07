@@ -9,14 +9,14 @@ class Screen2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text('Screen2'),
+        title: Text('Screen2',style: TextStyle(color: Colors.white),),
       ),
       body: Center(
         child: TextButton(
           style: TextButton.styleFrom(
             backgroundColor: Colors.blue,
           ),
-          child: Text('Go back'),
+          child: Text('Go back',style: TextStyle(color: Colors.white)),
           onPressed: () {
             Navigator.pop(context);
           },
