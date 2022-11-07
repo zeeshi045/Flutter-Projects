@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
-import 'Screen1.dart';
+import 'package:weatherapp/Screen1.dart';
 
-class Screen2 extends StatelessWidget {
-  const Screen2({Key? key}) : super(key: key);
+class Screen2 extends StatefulWidget {
+  @override
+  State<Screen2> createState() => _Screen2State();
+}
 
+class _Screen2State extends State<Screen2> {
+  @override
+
+  void initState() {
+    print('Init Calling');
+    super.initState();
+  }
+  @override
+  void deactivate() {
+    print('deactive Calling');
+    super.deactivate();
+  }
   @override
   Widget build(BuildContext context) {
+    print('build Calling');
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text('Screen2',style: TextStyle(color: Colors.white),),
-      ),
+          title: Text('Screen2'),
+        ),
       body: Center(
         child: TextButton(
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.blue,
-          ),
-          child: Text('Go back',style: TextStyle(color: Colors.white)),
+          child: Text('Go back'),
           onPressed: () {
             Navigator.pop(context);
           },
