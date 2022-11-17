@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Center(child: Image(image: AssetImage('assets/12.gif'), height:120)),
+            Center(child: Image(image: AssetImage('assets/gg.gif'), height:120)),
             SizedBox(height: 10,),
             SizedBox(
               height:20,
@@ -59,10 +59,8 @@ Widget build(BuildContext context) {
           children: [
             Padding(
               padding: const EdgeInsets.only(top:80),
-              child:Image.asset(
-                'assets/quiz.gif',
-                height: 140,
-                width: 120,
+              child:Text(
+                'Tasbee App',
               ),
             ),
             Padding(
