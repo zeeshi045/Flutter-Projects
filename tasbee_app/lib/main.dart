@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tasbee_app/Splash_Screen.dart';
+import 'package:tasbee_app/simple.dart';
+
+import 'advance.dart';
 void main() {
   runApp(SplashScreen());
 }
@@ -15,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 7),
+        Duration(seconds: 1),
             () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => firstPage())));
   }
@@ -60,7 +63,11 @@ Widget build(BuildContext context) {
             Padding(
               padding: const EdgeInsets.only(top:80),
               child:Text(
-                'Tasbee App',
+                'Tasbee App',style: TextStyle(
+                fontSize: 50,
+                fontWeight:FontWeight.bold,
+                color: Colors.black,
+              ),
               ),
             ),
             Padding(
@@ -68,7 +75,7 @@ Widget build(BuildContext context) {
               child: Center(
                 child: TextButton(
                   onPressed: () {
-                    Get.to(firstPage());
+                    Get.to(simple());
                   },
                   child: Icon(
                     Icons.play_circle_fill_outlined,
@@ -79,16 +86,41 @@ Widget build(BuildContext context) {
                 ),
               ),
             ),
-            Text('Play',
+            Text('Simple',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-              ),)
-          ],
+              ),
+            ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: TextButton(
+            onPressed: () {
+              Get.to(advance());
+            },
+            child: Icon(
+              Icons.play_circle_fill_outlined,
+              color: Colors.black87,
+              size: 100.0,
+            ),
+          ),
+        ),
+      ),
+            Text('Advance',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+         ],
         ),
       ),
     ),
   );
 }
 }
+
+
