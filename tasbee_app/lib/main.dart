@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 1),
+        Duration(seconds: 5),
             () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => firstPage())));
   }
@@ -38,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Image(image: AssetImage('assets/gg.gif'), height:120)),
             SizedBox(height: 10,),
             SizedBox(
               height:20,
@@ -496,6 +495,7 @@ class _src3State extends State<src3> {
     backgroundColor: Colors.black,),
     body: SingleChildScrollView(
       child: Container(
+
         child: Column(
           children: [
             SizedBox(height: 15,),
