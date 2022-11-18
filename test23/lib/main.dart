@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-int a=0;
+String a="";
 String b="Allah";
 int c=0;
 List<ElevatedButton> tasbheekaro = [];
-
+List<Question> ff=List.generate(tasbheekaro.length, (index) => Question('${b[index]}' ,'${a[index]}'));
 void main() {
   runApp(mid());
 }
 class mid extends StatelessWidget{
+  get index => ff;
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: screen1(a:c,b:""),
+      home: screen1(question: ff[index],),
     );
   }
 }
@@ -22,10 +24,9 @@ class mid extends StatelessWidget{
 
 class screen1 extends StatefulWidget {
   screen1({
-    required this.a,required this.b
+    required this.question
 });
-   int a=0;
- String b="";
+  final Question question;
   @override
   State<screen1> createState() => _screen1State();
 }
@@ -64,7 +65,7 @@ class _screen1State extends State<screen1> with TickerProviderStateMixin {
           backgroundColor: Colors.amberAccent,
         ),
         onPressed: () {
-          Get.to(screen1(a:0,b:""));
+          Get.to(screen1(question: ff[1],));
         }, child: Text("About")),
     Container(
 
@@ -362,10 +363,10 @@ class _dialogboxState extends State<dialogbox> {
                 tasbheelimit=int.parse(limit.text);
                 tasbheename=name.text;
                 b=tasbheename;
-                a=tasbheelimit;
+                a=tasbheelimit as String;
                 setState(() {
                   b=tasbheename;
-                  a=tasbheelimit;
+                  a=tasbheelimit as String;
                   c=0;
                 });
                 tasbheekaro.add(ElevatedButton(
@@ -379,7 +380,7 @@ class _dialogboxState extends State<dialogbox> {
                       //content padding inside button
                     ),
                     onPressed: (){
-                      Get.to(screen1(a:c,b:"mm"));
+                      Get.to(screen1(question: ff[1],));
                       if (!mounted) return;
                       setState(() {
                         b=tasbheename;
@@ -411,4 +412,11 @@ class _dialogboxState extends State<dialogbox> {
       ),
     );
   }
+}
+class Question {
+  String?questionText;
+  String ? questionAnswer;
+
+  Question(this.questionText,this.questionAnswer);
+
 }
