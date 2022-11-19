@@ -393,8 +393,9 @@ class _scr2State extends State<scr2> {
                           ),
                           onPressed: (){
                               print("kk");
-
-                              if(C==lc){
+if(lc>10000){
+  lc=10000;
+}                              if(C==lc){
                                 showAnimatedDialog(
                                   context: context,
                                   barrierDismissible: true,
@@ -495,7 +496,6 @@ class _src3State extends State<src3> {
     backgroundColor: Colors.black,),
     body: SingleChildScrollView(
       child: Container(
-
         child: Column(
           children: [
             SizedBox(height: 15,),
