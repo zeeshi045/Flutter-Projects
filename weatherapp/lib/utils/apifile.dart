@@ -1,2 +1,2 @@
-final apiId = "ee595cbdb0db0ef5d11b9caf5a8eb1ea";
-final defaultCity = "burewala";
+final apiId = "331aa8eb37d044c348df5ff4e3f2a77d";
+final defaultCity = "Vehari";
