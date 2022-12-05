@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasbee_app/Splash_Screen.dart';
 import 'package:tasbee_app/simple.dart';
 List<Widget> cus=[];
@@ -47,7 +48,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
-
 int   lc=100;
 int C=0;
 String tn="Allah";
@@ -136,6 +136,25 @@ class scr2 extends StatefulWidget {
 }
 
 class _scr2State extends State<scr2> {
+  Future<SharedPreferences> _pref= SharedPreferences.getInstance();
+  late SharedPreferences prefs;
+  String? saveds;
+  int ?s;
+  getValue()async {
+    prefs = await _pref;
+    saveds=prefs.containsKey("savedString") ? prefs.getString("savedString"): "";
+    s=(prefs.containsKey("saved") ? prefs.getInt("saved"): "0") as int?;
+    setState(() {
+      tn=saveds!;
+      C=s!;
+    });
+  }
+
+
+  void initState(){
+    getValue();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,9 +168,9 @@ class _scr2State extends State<scr2> {
                 image: AssetImage("images/kkm.gif"),
                 fit: BoxFit.cover),
           ),
-         Text("Tasbe App",style: TextStyle(
-           color: Colors.amber,
-         ),),
+          Text("Tasbe App",style: TextStyle(
+            color: Colors.amber,
+          ),),
           Container(
             height: 30,
             width: 30,
@@ -161,292 +180,289 @@ class _scr2State extends State<scr2> {
           ),
         ],
       ),
-      backgroundColor: Colors.black,),
+        backgroundColor: Colors.black,),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
               Row(
                 children: [
-          Container(
-          width: 100,
-            height: 648,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/qq.jpeg"),
-                  fit: BoxFit.cover),
+                  Container(
+                      width: 100,
+                      height: 648,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("images/qq.jpeg"),
+                            fit: BoxFit.cover),
+                      ),
+                      child:Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:Colors.amber,
+                                  foregroundColor: Colors.black,
+                                ),
+                                onPressed: (){
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+
+                                        title: Container(
+                                          height: 100,
+                                          width: 50,
+
+                                          decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage("images/jj.gif"),
+                                                fit: BoxFit.cover),
 
 
-            ),
-              child:Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:Colors.amber,
-                          foregroundColor: Colors.black,
-                        ),  
-                        onPressed: (){
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
+                                          ),
+                                        ),
+                                        // child: Text(''),),
+                                        content: SingleChildScrollView(
+                                          child: Container(
+                                            height: 200,
+                                            child: Column(
+                                              children: [
+                                                Text('Tasbeeh Name'),
 
-                                title: Container(
-                                 height: 100,
-                                  width: 50,
+                                                TextField(
+                                                  controller:  f1,
+                                                  decoration: InputDecoration(
+                                                    hintText: "Darood Shareef",
+                                                    border: OutlineInputBorder(),
+                                                    suffixIcon: IconButton(
+                                                        onPressed:(){
+                                                          //text field
 
-                                  decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                  image: AssetImage("images/jj.gif"),
-                              fit: BoxFit.cover),
 
+                                                          f1.clear();
+                                                        },
+                                                        icon: const Icon(Icons.backspace_outlined)
+                                                    ),
+
+
+                                                  ),
+
+
+                                                ),
+                                                Text('Tasbeeh Count'),
+                                                TextField(
+
+                                                  controller:  f2,
+                                                  decoration: InputDecoration(
+                                                    hintText: "10000",
+                                                    border: OutlineInputBorder(),
+                                                    suffixIcon: IconButton(
+                                                        onPressed:(){
+                                                          //limit
+
+
+                                                          f2.clear();
+                                                        },
+                                                        icon: const Icon(Icons.backspace_outlined)
+                                                    ),
+
+
+                                                  ),
+
+
+                                                ),
+
+
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+
+                                        actions: [
+
+                                          Center(
+                                            child: TextButton(
+
+                                              onPressed: () {
+                                                //add
+
+
+
+                                                String varf1=f1.text;
+                                                int  varf2=int.parse(f2.text);
+                                                cus.add(TextButton(
+                                                  child: Container(
+                                                    height: 60,
+                                                    width:300,
+                                                    color: Colors.amber,
+                                                    child: Row(
+                                                      children: [
+                                                        SizedBox(width: 5,),
+                                                        Text('$varf1',style: TextStyle(
+                                                          fontSize: 17,
+                                                          color: Colors.black,
+                                                        ),),
+                                                        Spacer(),
+                                                        Text(varf2.toString(),style: TextStyle(
+                                                          fontSize: 17,
+                                                          color: Colors.black,
+                                                        ),)
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    //buten list
+
+                                                    setState(() {
+
+                                                      tn=varf1;
+                                                      lc=varf2;
+                                                      C=0;
+                                                      Get.to(scr2());
+                                                      Navigator.pop(context);
+                                                    });
+                                                    Navigator.pop(context);
+                                                    Get
+                                                        .to(scr2());
+                                                  },
+                                                ));
+                                                setState(() {
+                                                  tn=varf1;
+                                                  lc=varf2;
+                                                  C=0;
+
+                                                });
+
+                                                f2.clear();
+                                                f1.clear();
+                                                Navigator.pop(context);
+                                              },
+                                              child: Text('ADD'),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+
+                                }, child:Text('Custom',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
 
                               ),
+                            )),
+                            SizedBox(height:20),
+                            TextButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:Colors.amber,
+                                  foregroundColor: Colors.black,
                                 ),
-                                // child: Text(''),),
-                                content: SingleChildScrollView(
-                                  child: Container(
-                                    height: 200,
-                                    child: Column(
-                                      children: [
-                                        Text('Tasbeeh Name'),
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>src3()));
 
-                                        TextField(
-                                          controller:  f1,
-                                          decoration: InputDecoration(
-                                            hintText: "Darood Shareef",
-                                            border: OutlineInputBorder(),
-                                            suffixIcon: IconButton(
-                                                onPressed:(){
-                                                  //text field
-
-
-                                                  f1.clear();
-                                                },
-                                                icon: const Icon(Icons.backspace_outlined)
-                                            ),
-
-
-                                          ),
-
-
-                                        ),
-                                        Text('Tasbeeh Count'),
-                                        TextField(
-
-                                          controller:  f2,
-                                          decoration: InputDecoration(
-                                            hintText: "10000",
-                                            border: OutlineInputBorder(),
-                                            suffixIcon: IconButton(
-                                                onPressed:(){
-                                                  //limit
-
-
-                                                  f2.clear();
-                                                },
-                                                icon: const Icon(Icons.backspace_outlined)
-                                            ),
-
-
-                                          ),
-
-
-                                        ),
-
-
-                                      ],
-                                    ),
-                                  ),
-                                ),
-
-                                actions: [
-
-                                  Center(
-                                    child: TextButton(
-
-                                      onPressed: () {
-                                        //add
-
-
-
-                                        String varf1=f1.text;
-                                        int  varf2=int.parse(f2.text);
-                                          cus.add(TextButton(
-                                            child: Container(
-                                              height: 60,
-                                              width:300,
-                                              color: Colors.amber,
-                                              child: Row(
-                                                children: [
-                                                  SizedBox(width: 5,),
-                                                  Text('$varf1',style: TextStyle(
-                                                    fontSize: 17,
-                                                    color: Colors.black,
-                                                  ),),
-                                                 Spacer(),
-                                                  Text(varf2.toString(),style: TextStyle(
-                                                    fontSize: 17,
-                                                    color: Colors.black,
-                                                  ),)
-                                                ],
-                                              ),
-                                            ),
-                                          onPressed: () {
-                                            //buten list
-
-                                            setState(() {
-
-                                                tn=varf1;
-                                                lc=varf2;
-                                                C=0;
-                                              Get.to(scr2());
-                                              Navigator.pop(context);
-                                            });
-                                            Navigator.pop(context);
-                                            Get
-                                                .to(scr2());
-                                          },
-                                        ));
-                                        setState(() {
-                                            tn=varf1;
-                                            lc=varf2;
-                                            C=0;
-
-                                        });
-
-                                        f2.clear();
-                                        f1.clear();
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('ADD'),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-
-                        }, child:Text('Custom',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-
-                      ),
-                    )),
-                    SizedBox(height:20),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:Colors.amber,
-                          foregroundColor: Colors.black,
+                                }, child:Text('  Saved',style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),))
+                          ],
                         ),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>src3()));
-
-                        }, child:Text('  Saved',style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),))
-                  ],
-                ),
-              )
-          ),
-          // SizedBox(width: 1,),
-          Container(
-            width:5,
-            height: 648,
-            color: Colors.brown,
-          ),
-          Container(
-            width:255,
-            height: 648,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/mm.jpeg"),
-                  fit: BoxFit.cover),
-
-
-            ),
-
-              child: Column(
-
-                children: [
-                  SizedBox(height: 70,),
-                  Text('$tn',style: TextStyle(
-                    color: Colors.amber,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  SizedBox(height: 100,),
-            Text('$C',style: TextStyle(color: Colors.white,
-                    fontSize: 35),),
-
-                  SizedBox(height: 100,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:Colors.amber,
-                            foregroundColor: Colors.black,
-                          ),
-                          onPressed: (){
-                              print("kk");
-if(lc>10000){
-  lc=10000;
-}                              if(C==lc){
-                                showAnimatedDialog(
-                                  context: context,
-                                  barrierDismissible: true,
-                                  builder: (BuildContext context) {
-                                    return ClassicGeneralDialogWidget(
-                                      titleText: 'Complete!',
-                                      contentText: 'Good Bye',
-                                      onPositiveClick: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      onNegativeClick: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    );
-                                  },
-                                  animationType: DialogTransitionType.rotate,
-                                  curve: Curves.fastOutSlowIn,
-                                  duration: Duration(seconds: 1),
-                                );
-                              }else {
-                                setState(() {
-                                  C++;
-                                });
-                              }
-
-
-                          },
-
-                          child:Text('Count',style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),)),
-                      SizedBox(width: 20,),
-                      TextButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:Colors.amber,
-                            foregroundColor: Colors.black,
-                          ),
-                          onPressed: (){ setState(() {
-                            C=0;
-                          });}, child:Text('Reset',style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),))
-                    ],
+                      )
                   ),
-                ],
+                  // SizedBox(width: 1,),
+                  Container(
+                    width:5,
+                    height: 648,
+                    color: Colors.brown,
+                  ),
+                  Container(
+                    width:255,
+                    height: 648,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("images/mm.jpeg"),
+                          fit: BoxFit.cover),
 
-              ),
 
-            ),
+                    ),
+
+                    child: Column(
+
+                      children: [
+                        SizedBox(height: 70,),
+                        Text('$tn',style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                        SizedBox(height: 100,),
+                        Text('$C',style: TextStyle(color: Colors.white,
+                            fontSize: 35),),
+
+                        SizedBox(height: 100,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:Colors.amber,
+                                  foregroundColor: Colors.black,
+                                ),
+                                onPressed: (){
+                                  print("kk");
+                                  if(lc>10000){
+                                    lc=10000;
+                                  }                              if(C==lc){
+                                    showAnimatedDialog(
+                                      context: context,
+                                      barrierDismissible: true,
+                                      builder: (BuildContext context) {
+                                        return ClassicGeneralDialogWidget(
+                                          titleText: 'Complete!',
+                                          contentText: 'Good Bye',
+                                          onPositiveClick: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          onNegativeClick: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        );
+                                      },
+                                      animationType: DialogTransitionType.rotate,
+                                      curve: Curves.fastOutSlowIn,
+                                      duration: Duration(seconds: 1),
+                                    );
+                                  }else {
+                                    setState(() {
+                                      C++;
+                                    });
+                                    prefs.setString("savedString",tn);
+                                    prefs.setInt("saved",C);
+                                  }
+                                },
+                                child:Text('Count',style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),)),
+                            SizedBox(width: 20,),
+                            TextButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:Colors.amber,
+                                  foregroundColor: Colors.black,
+                                ),
+                                onPressed: (){ setState(() {
+                                  C=0;
+                                });}, child:Text('Reset',style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),))
+                          ],
+                        ),
+                      ],
+
+                    ),
+
+                  ),
 
 
                 ],
