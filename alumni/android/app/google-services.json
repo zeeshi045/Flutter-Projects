@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "630017455610",
+    "project_id": "flutterapps-ce929",
+    "storage_bucket": "flutterapps-ce929.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630017455610:android:0ce9f09feb5f94a30ae043",
+        "android_client_info": {
+          "package_name": "com.example.alumni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630017455610-plodvlnld7anita67ud8jbc5082r8se3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh3SVP3_WrZ9JLVT78vGE0TSVmDUxJf30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630017455610-plodvlnld7anita67ud8jbc5082r8se3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "630017455610-8jl0eubouotq13mffiirceg4u4plb7ku.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.alumniApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
