@@ -252,8 +252,8 @@ adminpost()
           Expanded(
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 5),
-              child: Text('Only Admin Can Make Posts', textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.blueAccent),
+              child: Text('Only Admin Can Posts', textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
               ),
 
             ),

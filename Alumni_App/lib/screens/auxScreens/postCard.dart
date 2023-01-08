@@ -87,7 +87,7 @@ class _PostCardState extends State<PostCard> {
                       ? Colors.lightBlue
                       : Colors.white,
                 )),
-            TextSpan(text: " "),
+            TextSpan(text: ":   "),
             TextSpan(text: widget.qds.data()['text']),
           ]),
         ),
@@ -103,7 +103,7 @@ class _PostCardState extends State<PostCard> {
       child: Text(
         timeago.format(DateTime.now().subtract(
             DateTime.now().difference(widget.qds.data()['date'].toDate()))),
-        style: TextStyle(fontSize: 12, color: Colors.grey),
+        style: TextStyle(fontSize: 12, color: Colors.white),
         overflow: TextOverflow.ellipsis,
       ),
     );

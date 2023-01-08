@@ -206,7 +206,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
 
               )
                   : IconButton(
-                icon: Icon(Icons.chat, color: Colors.white),
+                icon: Icon(Icons.chat, color: Colors.deepPurple),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -366,7 +366,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
         itemBuilder: (context, index) => PostCard(_list[index]),
         itemCount: _list.length,
         separatorBuilder: (context, index) => Divider(
-          color: Colors.grey,
+          color: Colors.deepPurple,
         ),
       ),
     );
