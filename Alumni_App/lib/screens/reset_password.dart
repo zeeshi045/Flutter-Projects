@@ -47,7 +47,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 Expanded(
                   child: Container(
                     alignment: Alignment.bottomCenter,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10,230),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10,100),
                     child: Form(
                       key: _formKey,
                       child: Column(

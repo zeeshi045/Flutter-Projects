@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:url_launcher/url_launcher.dart';
+int seen=0;
 class SecondUserProfilePage extends StatefulWidget {
   final DocumentSnapshot qds;
   SecondUserProfilePage(this.qds);
@@ -168,13 +170,26 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                         IconButton(
                           icon: Icon(Icons.chat, color: Colors.deepPurple),
                           onPressed: () {
+
+                            setState(() {
+                              seen=1;
+                            });
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ChatScreen(widget.qds),
+                                builder: (context) => ChatScreen(
+                                    qds:widget.qds,seen1:seen
+                                ),
                               ),
                             );
-
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.call, color: Colors.deepPurple),
+                          onPressed: () {
+                            String b=widget.qds.data()['Number'].toString().toUpperCase();
+                            launch("tel://$b");
                           },
                         ),
 
@@ -189,10 +204,16 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                         IconButton(
                           icon: Icon(Icons.chat, color: Colors.white),
                           onPressed: () {
+                            setState(() {
+                              seen=1;
+                            });
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ChatScreen(widget.qds),
+                                builder: (context) => ChatScreen(
+                                    qds:widget.qds,seen1:seen
+                                ),
                               ),
                             );
 
@@ -208,10 +229,16 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                   : IconButton(
                 icon: Icon(Icons.chat, color: Colors.deepPurple),
                 onPressed: () {
+                  setState(() {
+                    seen=2;
+                  });
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ChatScreen(widget.qds),
+                      builder: (context) => ChatScreen(
+                          qds:widget.qds,seen1:seen
+                      ),
                     ),
                   );
 
@@ -232,6 +259,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
                 Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
@@ -317,7 +345,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
-                    widget.qds.data()['branch'].toString(),
+                    widget.qds.data()['Number'].toString(),
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),

@@ -47,7 +47,7 @@ class _SignUpState extends State<SignUp> {
                 Expanded(
                   child: Container(
                     alignment: Alignment.bottomCenter,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 160),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 100),
                     child: Form(
                       key: _formKey,
                       child: Column(

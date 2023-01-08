@@ -86,11 +86,39 @@ class _AddPostState extends State<AddPost> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Uploading Plz Wait"),
+          title: Text("Uploading plz wait...."),
           content: Container(
-            height: 200,
+            height: 100,
             child: Center(
-              child: CircularProgressIndicator(),
+ child:CircularProgressIndicator()
+
+            ),
+          ),
+        );
+      },
+    );
+  }
+  Future _showUploadingDialog2() {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Uploading Successfully"),
+          content: Container(
+            height: 100,
+            child: Center(
+              child: TextButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.deepPurpleAccent,
+                  onPrimary: Colors.white,
+                ),
+                onPressed: (){
+               Navigator.pop(context);
+
+                },
+                child: Text('ok'),
+              ),
             ),
           ),
         );
@@ -115,9 +143,9 @@ class _AddPostState extends State<AddPost> {
                   (_textController.text.trim().length == 0 ||
                       _textController.text.length == 0)) {
               } else {
-                setState(() {
+
                   _showUploadingDialog();
-                });
+
                 _repository.addImageToDB(_image).then(
                   (String _imageUrl) {
                     setState(() {
@@ -145,7 +173,7 @@ class _AddPostState extends State<AddPost> {
 
                       _repository.addPostDataToDB(_myPost, uidd).then((value) {
                         setState(() {
-                          Navigator.of(context).pop();
+                          _showUploadingDialog2();
                           _image = null;
                           _textController.clear();
                         });

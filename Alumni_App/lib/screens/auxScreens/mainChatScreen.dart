@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
   final QueryDocumentSnapshot qds;
-  ChatScreen(this.qds);
+  final int seen1;
+  ChatScreen({this.qds,this.seen1});
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
@@ -254,9 +255,22 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Text(
-          data['text'],
-          style: TextStyle(fontSize: 18, color: Colors.deepPurple),
+        child: Row(
+            children: [
+              if(widget.seen1 == 1)...[
+                Text(
+                  data['text'],
+                  style: TextStyle(fontSize: 18, color: Colors.deepPurple),
+                ),
+Spacer(),
+                Icon(Icons.done,size:20,color:Colors.blue,),
+              ]else...[
+                Text(
+                  data['text'],
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ]
+            ]
         ),
       ),
     );
@@ -277,9 +291,22 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Text(
-          data['text'],
-          style: TextStyle(fontSize: 18, color: Colors.white),
+        child: Row(
+            children: [
+              if(widget.seen1 == 2)...[
+                Text(
+                  data['text'],
+                  style: TextStyle(fontSize: 18, color: Colors.deepPurple),
+                ),
+Spacer(),
+                Icon(Icons.done,size:20,color:Colors.blue,),
+              ]else...[
+                Text(
+                  data['text'],
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ]
+            ]
         ),
       ),
     );

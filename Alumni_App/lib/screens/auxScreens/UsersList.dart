@@ -53,7 +53,7 @@ class _UserListState extends State<UserList> {
               child: Table(
                 border: TableBorder.all(),
                 columnWidths: const <int, TableColumnWidth>{
-                  1: FixedColumnWidth(80),
+                  1: FixedColumnWidth(47),
                 },
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
@@ -141,35 +141,38 @@ class _UserListState extends State<UserList> {
                                   style: TextStyle(fontSize: 12.0))),
                         ),
                         TableCell(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                onPressed: () =>
-                                {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          Update(
-                                              id: storedocs[i]['id']),
-                                    ),
-                                  )
-                                },
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.white,
+                          child: SingleChildScrollView(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  onPressed: () =>
+                                  {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            Update(
+
+                                                id: storedocs[i]['id']),
+                                      ),
+                                    )
+                                  },
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              IconButton(
-                                onPressed: () =>
-                                {deleteUser(storedocs[i]['id'])},
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: Colors.red,
+                                IconButton(
+                                  onPressed: () =>
+                                  {deleteUser(storedocs[i]['id'])},
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
