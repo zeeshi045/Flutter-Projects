@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guessnumber_final/s1.dart';
 import 'package:guessnumber_final/signup.dart';
 
 import 'forget.dart';
@@ -115,7 +116,10 @@ class _LogInState extends State<LogIn> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 onPressed: () {
-
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => screen1()),
+                                  );
 
                                           },
 
