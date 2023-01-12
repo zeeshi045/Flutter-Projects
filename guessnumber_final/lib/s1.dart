@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guessnumber_final/result.dart';
 import 'package:guessnumber_final/s2.dart';
+import 'package:guessnumber_final/showallrec.dart';
 class screen1 extends StatefulWidget {
   const screen1({Key? key}) : super(key: key);
 
@@ -14,6 +15,7 @@ class _screen1State extends State<screen1> {
     return Scaffold(
 
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.deepPurple,
         title: Text('Guess Number',style:TextStyle(color:Colors.white,fontSize: 25,)),
         centerTitle: true,
@@ -89,7 +91,7 @@ SizedBox(height: 50,),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => result()),
+                        MaterialPageRoute(builder: (context) => ShowAllRecord()),
                       );},
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(100, 100),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "725427913575",
+    "project_id": "guess-cc650",
+    "storage_bucket": "guess-cc650.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725427913575:android:163dc2833e7a5cd17265c2",
+        "android_client_info": {
+          "package_name": "com.example.guessnumber_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725427913575-s0r31iqi6gefh6gn3sirmae9fi8uffkf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNmiuAJho4qaV327oSmbQXST0KSLZDiNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725427913575-s0r31iqi6gefh6gn3sirmae9fi8uffkf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
