@@ -1,4 +1,6 @@
 
+import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -68,10 +70,20 @@ class _ResetPasswordState extends State<ResetPassword> {
                             ),
                             controller: _email,
                             keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter an email';
+                              }
+                              if (!EmailValidator.validate(value)) {
+                                return 'Enter a Correct email address';
+                              }
+                              return null;
+                            },
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
                             ),
+
 
                           ),
                           SizedBox(
@@ -122,7 +134,15 @@ class _ResetPasswordState extends State<ResetPassword> {
                               style: TextStyle(fontSize: 18),
                             ),
                             onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                if (_formKey.currentState!.validate()) {
+                                  FirebaseAuth.instance.sendPasswordResetEmail(
+                                      email: _email.text).then((value) =>
+                                      Navigator.of(context).pop());
+                                  // Code to execute when the button is pressed
+                                }
 
+          }
                             },
 
                           ),

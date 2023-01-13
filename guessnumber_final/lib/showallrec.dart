@@ -51,7 +51,7 @@ class _ShowAllRecordState extends State<ShowAllRecord> {
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(20)),
                 child: Container(
                   child: Column(
                   children:[

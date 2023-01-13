@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:guessnumber_final/showresult.dart';
+
 import 'dart:math';
 
+import 'package:guessnumber_final/showresult.dart';
 
 
-int num1 = 0;
-int num2 = 0;
-int num3 = 0;
-int num4 = 0;
-int var1 = 0;
-int var2 = 0;
-int var3 = 0;
-int var4 = 0;
-int num5 = 0;
+
+int n1 = 0;
+int n2 = 0;
+int n3 = 0;
+int n4 = 0;
+int v1 = 0;
+int v2 = 0;
+int v3 = 0;
+int v4 = 0;
+int n5 = 0;
 int chance = 2;
 int trying = 0;
 int correct = 0;
@@ -31,10 +33,15 @@ class _screen2State extends State<screen2> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("GOOD"),
+          title: Text("Nice"),
           content: Text(" Right Answer "),
           actions: [
             TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -50,14 +57,19 @@ class _screen2State extends State<screen2> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("OH NO!! Chance over"),
+          title: Text("Chance over!"),
           content: Row(
             children: [
-              Text("Genrate rendom number again"),
+              Text("Press two time generate number button"),
             ],
           ),
           actions: [
             TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -74,14 +86,19 @@ class _screen2State extends State<screen2> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Alert"),
+          title: Text("Message!"),
           content: Row(
             children: [
-              Text("PLESE Genrate Random number first"),
+              Text("Plz press two time generate number"),
             ],
           ),
           actions: [
             TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -98,10 +115,15 @@ class _screen2State extends State<screen2> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("OH no!"),
-          content: Text(" Wrong Guess "),
+          title: Text("UFFF"),
+          content: Text(" Wrong "),
           actions: [
             TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -138,58 +160,58 @@ class _screen2State extends State<screen2> {
             Center(child: TextButton(onPressed: (){
               setState(() { _visible=!_visible; });
     Random random = new Random();
-    num1 = random.nextInt(100) + 100;
-    print(num1);
+    n1 = random.nextInt(100) + 100;
+    print(n1);
     Random random2 = new Random();
-    num2 = random2.nextInt(100) + 100;
-    print(num2);
+    n2 = random2.nextInt(100) + 100;
+    print(n2);
     Random random3 = new Random();
-    num3 = random3.nextInt(100) + 100;
-    print(num3);
+    n3 = random3.nextInt(100) + 100;
+    print(n3);
     Random random4 = new Random();
-    num4 = random4.nextInt(100) + 100;
-    print(num4);
+    n4 = random4.nextInt(100) + 100;
+    print(n4);
     Random random5 = new Random();
-    num5 = random5.nextInt(4) + 1;
-    print(num4);
+    n5 = random5.nextInt(4) + 1;
+    print(n4);
     setState(() {
     chance = 2;
     });
     check = true;
 
-    if (num5 == 1) {
+    if (n5 == 1) {
     setState(() {
-    var1 = num2;
-    var2 = num4;
-    var3 = num1;
-    var4 = num3;
+    v1 = n2;
+    v2 = n4;
+    v3 = n1;
+    v4 = n3;
     });
     }
-    if (num5 == 2) {
+    if (n5 == 2) {
     setState(() {
-    var1 = num4;
-    var2 = num2;
-    var3 = num3;
-    var4 = num1;
+    v1 = n4;
+    v2 = n2;
+    v3 = n3;
+    v4 = n1;
     });
     }
-    if (num5 == 4) {
+    if (n5 == 4) {
     setState(() {
-    var1 = num1;
-    var2 = num2;
-    var3 = num4;
-    var4 = num3;
+    v1 = n1;
+    v2 = n2;
+    v3 = n4;
+    v4 = n3;
     });
     }
-    if (num5 == 3) {
+    if (n5 == 3) {
     setState(() {
-    var1 = num4;
-    var2 = num1;
-    var3 = num2;
-    var4 = num3;
+    v1 = n4;
+    v2 = n1;
+    v3 = n2;
+    v4 = n3;
     });
     };
-            }, child: Text('Gernate Number',style: TextStyle(
+            }, child: Text('Generate number',style: TextStyle(
               color: Colors.white
             ),),
               style: ElevatedButton.styleFrom(
@@ -213,7 +235,7 @@ SizedBox(height: 10,),
                 ),)),
               ],
             ),
-
+SizedBox(height: 150,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -223,36 +245,36 @@ SizedBox(height: 10,),
                   child: TextButton(onPressed: (){
                     if (check == true) {
                       if (chance > 0) {
-                        if (var1 == num1) {
+                        if (v1 == n1) {
                           correct++;
                           correctdialog();
                           setState(() {
                             trying++;
                             check = false;
-                            results.add("Try $trying  Right   $num1");
-                            num1 = 0;
-                            num2 = 0;
-                            num3 = 0;
-                            num4 = 0;
-                            var1 = 0;
-                            var2 = 0;
-                            var3 = 0;
-                            var4 = 0;
-                            num5 = 0;
+                            results.add("Try $trying  Right   $n1");
+                            n1 = 0;
+                            n2 = 0;
+                            n3 = 0;
+                            n4 = 0;
+                            v1 = 0;
+                            v2 = 0;
+                            v3 = 0;
+                            v4 = 0;
+                            n5 = 0;
                             chance = 2;
                           });
-                        } else if (var1 != num1 && chance == 2) {
+                        } else if (v1 != n1 && chance == 2) {
                           setState(() {
                             chance--;
                           });
                           wrongdialog();
-                        } else if (chance == 1 && var1 != num1) {
+                        } else if (chance == 1 && v1 != n1) {
                           setState(() {
                             trying++;
                             chance--;
                           });
 
-                          results.add("Try $trying  Wrong   $num1");
+                          results.add("Try $trying  Wrong   $n1");
                           wrongdialog();
                         }
                       } else {
@@ -261,7 +283,7 @@ SizedBox(height: 10,),
                     } else {
                       checking();
                     }
-                  }, child:Text('$var1',style: TextStyle(color: Colors.white),),
+                  }, child:Text('$v1',style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
 
                       backgroundColor: Colors.deepPurple,
@@ -275,35 +297,35 @@ SizedBox(height: 10,),
 
                     if (check == true) {
                       if (chance > 0) {
-                        if (var2 == num1) {
+                        if (v2 == n1) {
                           correct++;
                           correctdialog();
                           setState(() {
                             trying++;
                             check = false;
-                            results.add("Try $trying  Right   $num1");
-                            num1 = 0;
-                            num2 = 0;
-                            num3 = 0;
-                            num4 = 0;
-                            var1 = 0;
-                            var2 = 0;
-                            var3 = 0;
-                            var4 = 0;
-                            num5 = 0;
+                            results.add("Try $trying  Right   $n1");
+                            n1 = 0;
+                            n2 = 0;
+                            n3 = 0;
+                            n4 = 0;
+                            v1 = 0;
+                            v2 = 0;
+                            v3 = 0;
+                            v4 = 0;
+                            n5 = 0;
                             chance = 2;
                           });
-                        } else if (var2 != num1 && chance == 2) {
+                        } else if (v2 != n1 && chance == 2) {
                           setState(() {
                             chance--;
                           });
                           wrongdialog();
-                        } else if (chance == 1 && var2 != num1) {
+                        } else if (chance == 1 && v2 != n1) {
                           setState(() {
                             trying++;
                             chance--;
                           });
-                          results.add("Try $trying  Wrong   $num1");
+                          results.add("Try $trying  Wrong   $n1");
                           wrongdialog();
                         }
                       } else {
@@ -312,7 +334,7 @@ SizedBox(height: 10,),
                     } else {
                       checking();
                     }
-                  }, child:Text('$var2',style: TextStyle(color: Colors.white),),
+                  }, child:Text('$v2',style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
 
                       backgroundColor: Colors.deepPurple,
@@ -325,35 +347,35 @@ SizedBox(height: 10,),
                   child: TextButton(onPressed: (){
                     if (check == true) {
                       if (chance > 0) {
-                        if (var3 == num1) {
+                        if (v3 == n1) {
                           correct++;
                           correctdialog();
                           setState(() {
                             trying++;
                             check = false;
-                            results.add("Try $trying  Right   $num1");
-                            num1 = 0;
-                            num2 = 0;
-                            num3 = 0;
-                            num4 = 0;
-                            var1 = 0;
-                            var2 = 0;
-                            var3 = 0;
-                            var4 = 0;
-                            num5 = 0;
+                            results.add("Try $trying  Right   $n1");
+                            n1 = 0;
+                            n2 = 0;
+                            n3 = 0;
+                            n4 = 0;
+                            v1 = 0;
+                            v2 = 0;
+                            v3 = 0;
+                            v4 = 0;
+                            n5 = 0;
                             chance = 2;
                           });
-                        } else if (var3 != num1 && chance == 2) {
+                        } else if (v3 != n1 && chance == 2) {
                           setState(() {
                             chance--;
                           });
                           wrongdialog();
-                        } else if (chance == 1 && var3 != num1) {
+                        } else if (chance == 1 && v3 != n1) {
                           setState(() {
                             trying++;
                             chance--;
                           });
-                          results.add("Try $trying  Wrong   $num1");
+                          results.add("Try $trying  Wrong   $n1");
                           wrongdialog();
                         }
                       } else {
@@ -362,7 +384,7 @@ SizedBox(height: 10,),
                     } else {
                       checking();
                     }
-                  }, child:Text('$var3',style: TextStyle(color: Colors.white),),
+                  }, child:Text('$v3',style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
 
                       backgroundColor: Colors.deepPurple,
@@ -375,35 +397,35 @@ SizedBox(height: 10,),
                   child: TextButton(onPressed: (){
                     if (check == true) {
                       if (chance > 0) {
-                        if (var4 == num1) {
+                        if (v4 == n1) {
                           correct++;
                           correctdialog();
                           setState(() {
                             trying++;
                             check = false;
-                            results.add("Try $trying  Right   $num4");
-                            num1 = 0;
-                            num2 = 0;
-                            num3 = 0;
-                            num4 = 0;
-                            var1 = 0;
-                            var2 = 0;
-                            var3 = 0;
-                            var4 = 0;
-                            num5 = 0;
+                            results.add("Try $trying  Right   $n4");
+                            n1 = 0;
+                            n2 = 0;
+                            n3 = 0;
+                            n4 = 0;
+                            v1 = 0;
+                            v2 = 0;
+                            v3 = 0;
+                            v4 = 0;
+                            n5 = 0;
                             chance = 2;
                           });
-                        } else if (var4 != num1 && chance == 2) {
+                        } else if (v4 != n1 && chance == 2) {
                           setState(() {
                             chance--;
                           });
                           wrongdialog();
-                        } else if (chance == 1 && var4 != num1) {
+                        } else if (chance == 1 && v4 != n1) {
                           setState(() {
                             trying++;
                             chance--;
                           });
-                          results.add("Try $trying  Wrong   $num1");
+                          results.add("Try $trying  Wrong   $n1");
                           wrongdialog();
                         }
                       } else {
@@ -412,7 +434,7 @@ SizedBox(height: 10,),
                     } else {
                       checking();
                     }
-                  }, child:Text('$var4',style: TextStyle(color: Colors.white),),
+                  }, child:Text('$v4',style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
 
                       backgroundColor: Colors.deepPurple,
@@ -441,7 +463,24 @@ SizedBox(height: 250,),
 
                 ),
                 Spacer(),
-                TextButton(onPressed: (){}, child: Text('Retry',style: TextStyle(
+                TextButton(onPressed: (){
+                  setState((){
+                    results.clear();
+                    n1 = 0;
+                    n2 = 0;
+                    n3 = 0;
+                    n4 = 0;
+                    v1 = 0;
+                    v2 = 0;
+                    v3 = 0;
+                    v4 = 0;
+                    n5 = 0;
+                    chance = 2;
+                    trying = 0;
+                    correct = 0;
+                    check = false;
+                  });
+                }, child: Text('Retry',style: TextStyle(
                     color: Colors.white
                 ),),
                   style: ElevatedButton.styleFrom(

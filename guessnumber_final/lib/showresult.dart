@@ -3,7 +3,11 @@ import 'package:guessnumber_final/result.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:guessnumber_final/s2.dart';
+import 'package:guessnumber_final/services/database.dart';
 import 'package:guessnumber_final/showallrec.dart';
+final dbHelper = DatabaseHelper();
+int wrong=trying-correct;
+var uid = FirebaseAuth.instance.currentUser?.uid;
 class showres extends StatefulWidget {
   const showres({Key? key}) : super(key: key);
 
@@ -12,8 +16,37 @@ class showres extends StatefulWidget {
 }
 
 class _showresState extends State<showres> {
+
   User? current = FirebaseAuth.instance.currentUser;
   bool a = false;
+  void showdia() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Message"),
+          content: Row(
+            children: [
+              Text("Save Successfully"),
+            ],
+          ),
+          actions: [
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +86,7 @@ class _showresState extends State<showres> {
             ),
             SizedBox(height: 200,),
             TextButton(onPressed: (){
+              showdia();
           FirebaseFirestore.instance
               .collection("guess")
               .doc(current?.uid)
@@ -61,9 +95,6 @@ class _showresState extends State<showres> {
             "show": results,
             "title":
             '$correct Tries  Right out of $trying',
-          });
-          setState(() {
-            a=true;
           });
         }, child: Text('Add Data in Firebase',style: TextStyle(
           color: Colors.white,
@@ -75,7 +106,18 @@ class _showresState extends State<showres> {
           ),
         ),
             SizedBox(height: 20,),
-        TextButton(onPressed: (){}, child: Text('Add Data in SqlFilte',style: TextStyle(
+        TextButton(onPressed: () async{
+          showdia();
+          Map<String, dynamic> row = {
+            DatabaseHelper.columnUid: uid,
+            DatabaseHelper.columnCorrect: correct,
+            DatabaseHelper.columnWrong: wrong,
+            DatabaseHelper.columnTotal: trying,
+          };
+          final id = await dbHelper.insert(row);
+          debugPrint('inserted row id: $id');
+
+        }, child: Text('Add Data in SqlFilte',style: TextStyle(
           color: Colors.white,
           fontSize: 30,
         ),),

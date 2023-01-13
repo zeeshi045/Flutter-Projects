@@ -1,20 +1,61 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:guessnumber_final/login.dart';
 
 import 'dart:async';
 
+import 'package:guessnumber_final/s1.dart';
+var us = FirebaseAuth.instance.currentUser;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(splash());
 }
+class splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Splash Screen',
+
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 7),
+            () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MyApp())));
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("images/spl.gif"),
+            fit: BoxFit.cover),
+      ),
+    );
+
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -29,7 +70,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LogIn(),
+      home: us == null ? LogIn() :screen1(),
     );
   }
 }

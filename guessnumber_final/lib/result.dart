@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guessnumber_final/s2.dart';
+
 class result extends StatefulWidget {
   const result({Key? key}) : super(key: key);
 
@@ -60,15 +61,15 @@ appBar: AppBar(
                   onPressed: () {
                     setState((){
                       results.clear();
-                      num1 = 0;
-                      num2 = 0;
-                      num3 = 0;
-                      num4 = 0;
-                      var1 = 0;
-                      var2 = 0;
-                      var3 = 0;
-                      var4 = 0;
-                      num5 = 0;
+                      n1 = 0;
+                      n2 = 0;
+                      n3 = 0;
+                      n4 = 0;
+                      v1 = 0;
+                      v2 = 0;
+                      v3 = 0;
+                      v4 = 0;
+                      n5 = 0;
                       chance = 2;
                       trying = 0;
                       correct = 0;

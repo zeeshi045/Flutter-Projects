@@ -1,15 +1,110 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:guessnumber_final/result.dart';
 import 'package:guessnumber_final/s2.dart';
 import 'package:guessnumber_final/showallrec.dart';
+import 'package:get/get.dart';
+import 'login.dart';
+import 'offline.dart';
+var user = FirebaseAuth.instance.currentUser?.uid;
 class screen1 extends StatefulWidget {
   const screen1({Key? key}) : super(key: key);
 
   @override
   State<screen1> createState() => _screen1State();
 }
-
+FirebaseAuth _auth = FirebaseAuth.instance;
 class _screen1State extends State<screen1> {
+  Future<void> signOut() async {
+    await _auth.signOut();
+    Get.offAll(LogIn());
+  }
+  void sshow(){
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("All Records Show"),
+          content: Text(""),
+          actions: [
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
+              child: Text("Offline Records"),
+              onPressed: () {
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => offline()),
+                );
+              },
+            ),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
+              child: Text("Online Records"),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ShowAllRecord()),
+                );
+              },
+
+            ),
+          ],
+        );
+      },
+    );
+
+  }
+  void logout(){
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Logout"),
+          content: Text("Are you sure you want to logout?"),
+          actions: [
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
+              child: Text("Cancel"),
+              onPressed: () {
+
+                Navigator.pop(context);
+
+              },
+            ),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepPurple, // Background color
+                onPrimary: Colors.white,
+                // Text Color (Foreground color)
+              ),
+              child: Text("Logout"),
+              onPressed:(){
+                Get.to(LogIn());
+                Navigator.pop(context);
+
+              },
+
+            ),
+          ],
+        );
+      },
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +112,19 @@ class _screen1State extends State<screen1> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.deepPurple,
-        title: Text('Guess Number',style:TextStyle(color:Colors.white,fontSize: 25,)),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Guess Number',style:TextStyle(color:Colors.white,fontSize: 25,)),
+Spacer(),
+         TextButton(onPressed: (){
+           logout();
+         }, child: Icon(
+           Icons.logout,
+           color: Colors.white,
+         ))
+          ],
+        ),
         centerTitle: true,
       ),
       body:Container(
@@ -37,7 +144,7 @@ class _screen1State extends State<screen1> {
           child: Column(
 
             children: [
-SizedBox(height: 50,),
+SizedBox(height: 30,),
         Container(
           width: 300,
           height: 500,
@@ -77,11 +184,13 @@ SizedBox(height: 50,),
                   Spacer(),
                   ElevatedButton(
                     child: CircleAvatar(
-                      radius: 130,
+                      radius: 150,
+
                       backgroundColor: Colors.transparent,
 
                       child: ClipOval(
-                        child: Image.asset("images/res.jpeg",
+
+                        child: Image.asset("images/ddd.jpg",
 
                         ),
 
@@ -89,10 +198,8 @@ SizedBox(height: 50,),
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ShowAllRecord()),
-                      );},
+                      sshow();
+                      },
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(100, 100),
                       shape: const CircleBorder(),
