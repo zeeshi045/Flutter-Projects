@@ -6,7 +6,7 @@ import 'package:guessnumber_final/s2.dart';
 import 'package:guessnumber_final/services/database.dart';
 import 'package:guessnumber_final/showallrec.dart';
 final dbHelper = DatabaseHelper();
-int wrong=trying-correct;
+int wrong=0;
 var uid = FirebaseAuth.instance.currentUser?.uid;
 class showres extends StatefulWidget {
   const showres({Key? key}) : super(key: key);
@@ -111,7 +111,7 @@ class _showresState extends State<showres> {
           Map<String, dynamic> row = {
             DatabaseHelper.columnUid: uid,
             DatabaseHelper.columnCorrect: correct,
-            DatabaseHelper.columnWrong: wrong,
+            DatabaseHelper.columnWrong: wrong=trying-correct,
             DatabaseHelper.columnTotal: trying,
           };
           final id = await dbHelper.insert(row);

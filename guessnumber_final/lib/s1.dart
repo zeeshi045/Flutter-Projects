@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:guessnumber_final/result.dart';
 import 'package:guessnumber_final/s2.dart';
 import 'package:guessnumber_final/showallrec.dart';
@@ -92,8 +93,10 @@ class _screen1State extends State<screen1> {
               ),
               child: Text("Logout"),
               onPressed:(){
+                FirebaseAuth.instance.signOut();
                 Get.to(LogIn());
-                Navigator.pop(context);
+                SystemNavigator.pop();
+
 
               },
 
@@ -127,97 +130,99 @@ Spacer(),
         ),
         centerTitle: true,
       ),
-      body:Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.white,
-                Colors.black87,
-              ],
-            )
-        ),
-
-
-
-          child: Column(
-
-            children: [
-SizedBox(height: 30,),
-        Container(
-          width: 300,
-          height: 500,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/gbm.gif"),
-                fit: BoxFit.cover),
+      body:SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.white,
+                  Colors.black87,
+                ],
+              )
           ),
-        ),
+
+
+
+            child: Column(
+
+              children: [
+SizedBox(height: 30,),
+          Container(
+            width: 300,
+            height: 500,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/gbm.gif"),
+                  fit: BoxFit.cover),
+            ),
+          ),
 
 SizedBox(height: 50,),
 
-              Row(
+                Row(
 
-                children: [
+                  children: [
 
-                  ElevatedButton(
-                    child: CircleAvatar(
-                      radius: 130,
-                      backgroundColor: Colors.transparent,
+                    ElevatedButton(
+                      child: CircleAvatar(
+                        radius: 130,
+                        backgroundColor: Colors.transparent,
 
-                      child: ClipOval(
-                        child: Image.asset("images/pl.png",
+                        child: ClipOval(
+                          child: Image.asset("images/pl.png",
+                          ),
                         ),
                       ),
-                    ),
-                    onPressed: () { Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => screen2()),
-                    );},
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(100, 100),
-                      shape: const CircleBorder(),
-                      backgroundColor: Colors.deepPurple,
-                    ),
-                  ),
-                  Spacer(),
-                  ElevatedButton(
-                    child: CircleAvatar(
-                      radius: 150,
-
-                      backgroundColor: Colors.transparent,
-
-                      child: ClipOval(
-
-                        child: Image.asset("images/ddd.jpg",
-
-                        ),
-
-
+                      onPressed: () { Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => screen2()),
+                      );},
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(100, 100),
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.deepPurple,
                       ),
                     ),
-                    onPressed: () {
-                      sshow();
-                      },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(100, 100),
-                      shape: const CircleBorder(),
-                      backgroundColor: Colors.deepPurple,
+                    Spacer(),
+                    ElevatedButton(
+                      child: CircleAvatar(
+                        radius: 150,
+
+                        backgroundColor: Colors.transparent,
+
+                        child: ClipOval(
+
+                          child: Image.asset("images/ddd.jpg",
+
+                          ),
+
+
+                        ),
+                      ),
+                      onPressed: () {
+                        sshow();
+                        },
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(100, 100),
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.deepPurple,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
 
 
-              SizedBox(
-                height: 20,
-              ),
+                SizedBox(
+                  height: 20,
+                ),
 
-            ],
+              ],
+            ),
+
           ),
-
-        ),
+      ),
 
 
 

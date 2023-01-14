@@ -7,8 +7,13 @@ import 'package:guessnumber_final/login.dart';
 import 'dart:async';
 
 import 'package:guessnumber_final/s1.dart';
+import 'package:guessnumber_final/services/database.dart';
 var us = FirebaseAuth.instance.currentUser;
+final dbHelper = DatabaseHelper();
+
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dbHelper.mydb();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(splash());

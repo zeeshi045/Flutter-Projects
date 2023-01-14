@@ -11,7 +11,6 @@ class DatabaseHelper {
   static const columnUid = 'uid';
   static const columnCorrect= 'correct';
   static const columnWrong= 'wrong';
-
   static const columnTotal= 'total';
 
 
