@@ -180,7 +180,12 @@ SizedBox(height: 50,),
                       onPressed: () { Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => screen2()),
-                      );},
+                      );
+
+                          setState(() {
+                            uid=FirebaseAuth.instance.currentUser?.uid;
+                        });
+                        },
                       style: ElevatedButton.styleFrom(
                         fixedSize: const Size(100, 100),
                         shape: const CircleBorder(),

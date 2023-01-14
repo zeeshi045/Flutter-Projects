@@ -10,9 +10,8 @@ var uss = FirebaseAuth.instance.currentUser;
 final dbHelper = DatabaseHelper();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dbHelper.mydb();
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await dbHelper.mydb();
   runApp(splash());
 }
 class splash extends StatelessWidget {

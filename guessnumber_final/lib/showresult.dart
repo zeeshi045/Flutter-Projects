@@ -7,7 +7,6 @@ import 'package:guessnumber_final/services/database.dart';
 import 'package:guessnumber_final/showallrec.dart';
 final dbHelper = DatabaseHelper();
 int wrong=0;
-var uid = FirebaseAuth.instance.currentUser?.uid;
 class showres extends StatefulWidget {
   const showres({Key? key}) : super(key: key);
 
@@ -119,7 +118,9 @@ class _showresState extends State<showres> {
           };
           final id = await dbHelper.insert(row);
           debugPrint('inserted row id: $id');
-
+setState(() {
+  uid=FirebaseAuth.instance.currentUser?.uid;
+});
         }, child: Text('Add Data in SqlFilte',style: TextStyle(
           color: Colors.white,
           fontSize: 30,

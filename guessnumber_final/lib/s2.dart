@@ -60,7 +60,7 @@ class _screen2State extends State<screen2> {
           title: Text("Chance over!"),
           content: Row(
             children: [
-              Text("Press two time generate number button"),
+              Text("Press two time generate number"),
             ],
           ),
           actions: [
