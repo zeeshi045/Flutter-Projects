@@ -3,14 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:guessnumber_final/login.dart';
-
 import 'dart:async';
-
 import 'package:guessnumber_final/s1.dart';
 import 'package:guessnumber_final/services/database.dart';
-var us = FirebaseAuth.instance.currentUser;
+var uss = FirebaseAuth.instance.currentUser;
 final dbHelper = DatabaseHelper();
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dbHelper.mydb();
@@ -47,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("images/spl.gif"),
+            image: AssetImage("images/splash.gif"),
             fit: BoxFit.cover),
       ),
     );
@@ -75,7 +72,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: us == null ? LogIn() :screen1(),
+      home: uss == null ? LogIn() :screen1(),
     );
   }
 }

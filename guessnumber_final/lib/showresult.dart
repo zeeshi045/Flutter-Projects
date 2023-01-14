@@ -51,7 +51,10 @@ class _showresState extends State<showres> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Show_Result and Save'),
+        centerTitle: true,
+        title: Text('Show_Result and Save',style: TextStyle(
+            fontSize: 25,
+        ),),
         backgroundColor: Colors.deepPurple,
       ),
       body: Container(

@@ -13,8 +13,11 @@ class _offlineState extends State<offline> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title:
-            Text('Previous Record'),
+            Text('Previous Record',style: TextStyle(
+              fontSize: 25,
+            ),),
         backgroundColor: Colors.deepPurple,
         ),
 

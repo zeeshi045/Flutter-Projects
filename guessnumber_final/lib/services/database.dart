@@ -26,7 +26,9 @@ class DatabaseHelper {
       onCreate: _onCreate,
     );
   }
-
+  Future log() async {
+    await _db.close();
+  }
   // SQL code to create the database table
   Future _onCreate(Database db, int version) async {
     await db.execute('''

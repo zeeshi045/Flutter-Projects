@@ -140,8 +140,11 @@ class _screen2State extends State<screen2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.deepPurple,
-        title: Text('Guess Number',),
+        title: Text('Play Game',style: TextStyle(
+          fontSize: 25,
+        ),),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -211,7 +214,7 @@ class _screen2State extends State<screen2> {
     v4 = n3;
     });
     };
-            }, child: Text('Generate number',style: TextStyle(
+            }, child: Text('Generate Number',style: TextStyle(
               color: Colors.white
             ),),
               style: ElevatedButton.styleFrom(

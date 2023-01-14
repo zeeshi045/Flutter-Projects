@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:guessnumber_final/result.dart';
 import 'package:guessnumber_final/s2.dart';
+import 'package:guessnumber_final/services/database.dart';
 import 'package:guessnumber_final/showallrec.dart';
 import 'package:get/get.dart';
 import 'login.dart';
@@ -36,7 +37,9 @@ class _screen1State extends State<screen1> {
               ),
               child: Text("Offline Records"),
               onPressed: () {
-
+setState(() {
+  uid=FirebaseAuth.instance.currentUser?.uid;
+});
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => offline()),
@@ -55,6 +58,7 @@ class _screen1State extends State<screen1> {
                   context,
                   MaterialPageRoute(builder: (context) => ShowAllRecord()),
                 );
+
               },
 
             ),
@@ -92,12 +96,10 @@ class _screen1State extends State<screen1> {
                 // Text Color (Foreground color)
               ),
               child: Text("Logout"),
-              onPressed:(){
+              onPressed:() {
                 FirebaseAuth.instance.signOut();
                 Get.to(LogIn());
-                SystemNavigator.pop();
-
-
+                Navigator.pop(context);
               },
 
             ),

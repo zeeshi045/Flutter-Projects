@@ -13,7 +13,10 @@ class _resultState extends State<result> {
   Widget build(BuildContext context) {
     return Scaffold(
 appBar: AppBar(
-  title:Text('Current Result show'),
+  centerTitle: true,
+  title:Text('Current Result Show',style: TextStyle(
+    fontSize: 25,
+  ),),
   backgroundColor: Colors.deepPurple,
 ),
       body: Container(
@@ -46,7 +49,7 @@ appBar: AppBar(
                 },
               ),
             ),
-            Text("Improvement Click "),
+            Text("You want to improvement click "),
             Text(" below button and restart the Score"),
             Align(
               alignment: Alignment.center,
